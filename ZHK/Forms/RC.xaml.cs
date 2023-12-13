@@ -27,6 +27,10 @@ namespace ZHK.Forms
         {
             dGridRC = dGridRc;
             InitializeComponent();
+
+            var tempHouses = LogicMethods.GetHousesByComplexId(((ResidentialComplex)dGridRC.SelectedItem).ID);
+            test.Text = string.Join("", tempHouses.ConvertAll(e => $"{e.ID} {e.Number} {e.Street}"));
+
             LogicMethods.GetUniqueValues("ResidentialComplex", "Status", ComboBoxStatus);
             if (dGridRC.SelectedItem != null )
             {

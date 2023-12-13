@@ -39,6 +39,7 @@
                 <Label Style="{StaticResource InputBoxLabel}">Статус</Label>
                 <ComboBox x:Name="ComboBoxStatus" Style="{StaticResource InputComboBox}"></ComboBox>
             </WrapPanel>
+            <TextBlock x:Name="test"></TextBlock>
         </WrapPanel>
         <UniformGrid Grid.Row="2" VerticalAlignment="Bottom" Columns="3">
             <Border  Style="{StaticResource EditObjectButtonBorder}">
