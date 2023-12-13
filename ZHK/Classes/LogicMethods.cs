@@ -5,6 +5,7 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -49,6 +50,17 @@ namespace ZHK.Classes
                     }
                 }
             }
+        }
+
+        public static bool CanChangeStatusToPlan(int complexID)
+        {
+            var apartments = ЖК_311Entities.GetContext().Apartaments.Where(a => a.ID == complexID);
+            bool hasSoldApartments = apartments.Any(a => a.IsSold == true);
+            if (hasSoldApartments)
+            {
+                return false;
+            }
+            return true;
         }
 
         public static void FilterStatus(DataGrid dGripRC, ComboBox filter)
