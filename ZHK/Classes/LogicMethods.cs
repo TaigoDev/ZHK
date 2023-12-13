@@ -1,15 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Data;
 
 namespace ZHK.Classes
 {
-    public class LogicMethods
+    public static class LogicMethods
     {
         public static string CurrentPage()
         {
@@ -20,15 +23,44 @@ namespace ZHK.Classes
             return lWord;
         }
 
-        public void SortByCityStatus()
+        public static void SortByCityStatus(DataGrid dGridRC)
         {
-            ICollectionView cv = CollectionViewSource.GetDefaultView(DGridRC.ItemsSource);
+            ICollectionView cv = CollectionViewSource.GetDefaultView(dGridRC.ItemsSource);
             if (cv != null && cv.CanSort == true)
             {
                 cv.SortDescriptions.Clear();
                 cv.SortDescriptions.Add(new SortDescription("City", ListSortDirection.Ascending));
                 cv.SortDescriptions.Add(new SortDescription("Status", ListSortDirection.Ascending));
             }
+        }
+
+        public static void GetUniqueValues(string TableName, string ColumnName, ComboBox comboBoxUI)
+        {
+            using (SqlConnection conn = new SqlConnection("Data Source=localhost;Initial Catalog=ЖК_311;Integrated Security=SSPI;"))
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand($"SELECT DISTINCT {ColumnName} FROM {TableName}", conn))
+                {
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        comboBoxUI.Items.Add(reader[ColumnName].ToString());
+                    }
+                }
+            }
+        }
+
+        public static void FilterStatus(DataGrid dGripRC, ComboBox filter)
+        {
+            dGripRC.ItemsSource = from rc in ЖК_311Entities.GetContext().ResidentialComplexes.ToList()
+                                  where rc.Status == filter.SelectedItem.ToString()
+                                  select rc;
+        }
+        public static void FilterCity(DataGrid dGripRC, ComboBox filter)
+        {
+            dGripRC.ItemsSource = from rc in ЖК_311Entities.GetContext().ResidentialComplexes.ToList()
+                                  where rc.City == filter.SelectedItem.ToString()
+                                  select rc;
         }
     }
 }

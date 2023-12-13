@@ -16,17 +16,21 @@
                 <TextBox Style="{StaticResource Input}"></TextBox>
             </WrapPanel>
             <WrapPanel Style="{StaticResource InputBox}">
-                <Label Style="{StaticResource InputBoxLabel}">коэффициент добавочной стоимости</Label>
+                <Label Style="{StaticResource InputBoxLabel}">КДС</Label>
                 <TextBox Style="{StaticResource Input}"></TextBox>
             </WrapPanel>
             <WrapPanel Style="{StaticResource InputBox}">
-                <Label Style="{StaticResource InputBoxLabel}">коэффициент добавочной стоимости</Label>
-                <TextBox Style="{StaticResource Input}"></TextBox>
-            </WrapPanel>
-            <WrapPanel Style="{StaticResource InputBox}">
-                <Label Style="{StaticResource InputBoxLabel}">Город</Label>
-                <ComboBox Style="{StaticResource InputComboBox}"></ComboBox>
-            </WrapPanel>
+            <Label Style="{StaticResource InputBoxLabel}">Затраты</Label>
+            <TextBox Style="{StaticResource Input}"></TextBox>
+        </WrapPanel>
+        <WrapPanel Style="{StaticResource InputBox}">
+            <Label Style="{StaticResource InputBoxLabel}">Город</Label>
+            <TextBox Style="{StaticResource Input}"></TextBox>
+        </WrapPanel>
+        <WrapPanel Style="{StaticResource InputBox}">
+            <Label Style="{StaticResource InputBoxLabel}">Статус</Label>
+            <ComboBox Style="{StaticResource InputComboBox}"></ComboBox>
+        </WrapPanel>
         </WrapPanel>
     </StackPanel>
 </Page>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ZHK.Classes;
 
 namespace ZHK.Forms
 {
@@ -30,6 +32,21 @@ namespace ZHK.Forms
         {
             InitializeComponent();
             DGridRC.ItemsSource = ЖК_311Entities.GetContext().ResidentialComplexes.ToList();
+            LogicMethods.SortByCityStatus(DGridRC);
+            LogicMethods.GetUniqueValues("ResidentialComplex", "Status", StatusFilter);
+            LogicMethods.GetUniqueValues("ResidentialComplex", "City", CityFilter);
+
+        }
+
+        //Изменение фильтра 
+        private void StatusFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            LogicMethods.FilterStatus(DGridRC, StatusFilter);
+        }
+
+        private void CityFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            LogicMethods.FilterCity(DGridRC, CityFilter);
         }
     }
 }

@@ -28,8 +28,8 @@
             Список ЖК
         </Label>
         <UniformGrid Grid.Row="1" Rows="1" Columns="2">
-            <ComboBox Style="{StaticResource Filter}" x:Name="filter1" Height="30" HorizontalAlignment="Stretch" Margin="20"/>
-            <ComboBox Style="{StaticResource Filter}" x:Name="filter2" Height="30" HorizontalAlignment="Stretch" Margin="20"/>
+            <ComboBox Style="{StaticResource Filter}" SelectionChanged="StatusFilter_SelectionChanged" x:Name="StatusFilter" Height="30" HorizontalAlignment="Stretch" Margin="20"/>
+            <ComboBox Style="{StaticResource Filter}" SelectionChanged="CityFilter_SelectionChanged" x:Name="CityFilter" Height="30" HorizontalAlignment="Stretch" Margin="20"/>
         </UniformGrid>
         <DataGrid Grid.Row="2" x:Name="DGridRC" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>

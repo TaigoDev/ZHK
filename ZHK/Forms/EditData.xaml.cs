@@ -29,6 +29,8 @@ namespace ZHK.Forms
 
         private void BtnEditData_Click(object sender, RoutedEventArgs e)
         {
+            Switcher.Editor.Navigate(new EditObject());
+
             if(LogicMethods.CurrentPage() == "ListRC")
             {
                 Switcher.MainFrame.Navigate(new RC());
