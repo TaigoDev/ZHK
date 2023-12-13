@@ -35,7 +35,6 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Name}" Header="Название"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding Status}" Header="Статус"></DataGridTextColumn>
-                <DataGridTextColumn Binding="{Binding Houses}" Header="Количество домов"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding City}" Header="Города"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
