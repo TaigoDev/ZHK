@@ -23,7 +23,7 @@ namespace ZHK.Forms
         public ListRC()
         {
             InitializeComponent();
-           // DGridRC.ItemsSource = ЖК_311Entities.GetContext().ResidentialComplexes.ToList();
+            DGridRC.ItemsSource = ЖК_311Entities.GetContext().ResidentialComplexes.ToList();
         }
     }
 }
