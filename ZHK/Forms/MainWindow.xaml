@@ -1,0 +1,43 @@
+﻿<Window x:Class="ZHK.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZHK"
+        mc:Ignorable="d"
+        Title="MainWindow" Foreground="White" Height="600" Width="1000" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition/>
+            <RowDefinition Height="25"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="25"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="25"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Row="1" Grid.Column="1" Padding="30 15" CornerRadius="25" Background="Gray">
+            <UniformGrid Rows="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <Border Style="{StaticResource NavigationButtonBorder}">
+                    <Button x:Name="BtnResComp" Click="BtnResComp_Click" Style="{StaticResource NavigationButton}" Content="Список ЖК"/>
+                </Border>
+                <Border Style="{StaticResource NavigationButtonBorder}">
+                    <Button x:Name="BtnHouse" Click="BtnHouse_Click" Style="{StaticResource NavigationButton}" Content="Список домов"/>
+                </Border>
+                <Border Style="{StaticResource NavigationButtonBorder}">
+                    <Button x:Name="BtnApartment" Click="BtnApartment_Click" Content="Список квартир" Style="{StaticResource NavigationButton}"/>
+                </Border>
+            </UniformGrid>
+        </Border>
+
+        <Border Padding="30 15" Grid.Row="2" Grid.Column="1" Margin="0 30 0 0" CornerRadius="20" Background="Gray">
+            <UniformGrid Rows="2" Columns="1">
+                <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"></Frame>
+                <Frame x:Name="Editor" VerticalAlignment="Bottom" NavigationUIVisibility="Hidden"></Frame>
+            </UniformGrid>
+        </Border>
+    </Grid>
+</Window>
