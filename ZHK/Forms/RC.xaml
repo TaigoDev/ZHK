@@ -13,24 +13,24 @@
         <WrapPanel Orientation="Vertical">
             <WrapPanel Style="{StaticResource InputBox}">
                 <Label Style="{StaticResource InputBoxLabel}">Название</Label>
-                <TextBox Style="{StaticResource Input}"></TextBox>
+                <TextBox x:Name="TxtBoxName" Style="{StaticResource Input}"></TextBox>
             </WrapPanel>
             <WrapPanel Style="{StaticResource InputBox}">
                 <Label Style="{StaticResource InputBoxLabel}">КДС</Label>
-                <TextBox Style="{StaticResource Input}"></TextBox>
+                <TextBox x:Name="TxtBoxKDC" Style="{StaticResource Input}"></TextBox>
             </WrapPanel>
             <WrapPanel Style="{StaticResource InputBox}">
-            <Label Style="{StaticResource InputBoxLabel}">Затраты</Label>
-            <TextBox Style="{StaticResource Input}"></TextBox>
-        </WrapPanel>
-        <WrapPanel Style="{StaticResource InputBox}">
-            <Label Style="{StaticResource InputBoxLabel}">Город</Label>
-            <TextBox Style="{StaticResource Input}"></TextBox>
-        </WrapPanel>
-        <WrapPanel Style="{StaticResource InputBox}">
-            <Label Style="{StaticResource InputBoxLabel}">Статус</Label>
-            <ComboBox Style="{StaticResource InputComboBox}"></ComboBox>
-        </WrapPanel>
+                <Label Style="{StaticResource InputBoxLabel}">Затраты</Label>
+                <TextBox x:Name="TxtBoxMoney" Style="{StaticResource Input}"></TextBox>
+            </WrapPanel>
+            <WrapPanel Style="{StaticResource InputBox}">
+                <Label Style="{StaticResource InputBoxLabel}">Город</Label>
+                <TextBox x:Name="TxtBoxCity" Style="{StaticResource Input}"></TextBox>
+            </WrapPanel>
+            <WrapPanel Style="{StaticResource InputBox}">
+                <Label Style="{StaticResource InputBoxLabel}">Статус</Label>
+                <ComboBox x:Name="ComboBoxStatus" Style="{StaticResource InputComboBox}"></ComboBox>
+            </WrapPanel>
         </WrapPanel>
     </StackPanel>
 </Page>
