@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ZHK.Classes;
 
 namespace ZHK
 {
@@ -24,6 +25,8 @@ namespace ZHK
             InitializeComponent();
             MainFrame.Navigate(new Hello());
             Editor.Navigate(new Empty());
+            Switcher.MainFrame = MainFrame;
+            Switcher.Editor = Editor;
         }
 
         private void BtnResComp_Click(object sender, RoutedEventArgs e)

@@ -31,10 +31,11 @@
             <ComboBox Style="{StaticResource Filter}" x:Name="filter1" Height="30" HorizontalAlignment="Stretch" Margin="20"/>
             <ComboBox Style="{StaticResource Filter}" x:Name="filter2" Height="30" HorizontalAlignment="Stretch" Margin="20"/>
         </UniformGrid>
-        <DataGrid Grid.Row="2" x:Name="DGridRC">
+        <DataGrid Grid.Row="2" x:Name="DGridRC" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Name}" Header="Название"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding Status}" Header="Статус"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Houses.Count}" Header="Дома"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding City}" Header="Города"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>

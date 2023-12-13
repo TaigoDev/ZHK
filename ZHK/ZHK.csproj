@@ -67,10 +67,21 @@
     <Compile Include="Apartament.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Classes\LogicMethods.cs" />
+    <Compile Include="Classes\Switcher.cs" />
     <Compile Include="DBModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Apartment.xaml.cs">
+      <DependentUpon>Apartment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\House.xaml.cs">
+      <DependentUpon>House.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RC.xaml.cs">
+      <DependentUpon>RC.xaml</DependentUpon>
     </Compile>
     <Compile Include="House.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
@@ -81,6 +92,10 @@
     <Compile Include="sysdiagram.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Page Include="Forms\Apartment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Forms\EditData.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -96,6 +111,10 @@
     <Page Include="Forms\Hello.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms\House.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\ListApartments.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -151,6 +170,10 @@
     <Compile Include="Forms\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Forms\RC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -187,7 +210,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Classes\" />
     <Folder Include="Sources\" />
   </ItemGroup>
   <ItemGroup>

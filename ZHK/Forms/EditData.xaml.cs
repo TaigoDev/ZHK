@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ZHK.Classes;
 
 namespace ZHK.Forms
 {
@@ -23,6 +25,23 @@ namespace ZHK.Forms
         public EditData()
         {
             InitializeComponent();
+        }
+
+        private void BtnEditData_Click(object sender, RoutedEventArgs e)
+        {
+            if(LogicMethods.CurrentPage() == "ListRC")
+            {
+                Switcher.MainFrame.Navigate(new RC());
+            }
+            else if (LogicMethods.CurrentPage() == "ListHouses")
+            {
+                Switcher.MainFrame.Navigate(new House());
+            }
+            else if (LogicMethods.CurrentPage() == "ListApartments")
+            {
+                Switcher.MainFrame.Navigate(new Apartament());
+            }
+
         }
     }
 }
