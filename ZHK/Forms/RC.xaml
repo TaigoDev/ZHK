@@ -8,7 +8,25 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="RC">
 
-    <Grid>
-        
-    </Grid>
+    <StackPanel>
+        <Label Margin="0 0 0 40" Style="{StaticResource PageTitle}">ЖК</Label>
+        <WrapPanel Orientation="Vertical">
+            <WrapPanel Style="{StaticResource InputBox}">
+                <Label Style="{StaticResource InputBoxLabel}">Название</Label>
+                <TextBox Style="{StaticResource Input}"></TextBox>
+            </WrapPanel>
+            <WrapPanel Style="{StaticResource InputBox}">
+                <Label Style="{StaticResource InputBoxLabel}">коэффициент добавочной стоимости</Label>
+                <TextBox Style="{StaticResource Input}"></TextBox>
+            </WrapPanel>
+            <WrapPanel Style="{StaticResource InputBox}">
+                <Label Style="{StaticResource InputBoxLabel}">коэффициент добавочной стоимости</Label>
+                <TextBox Style="{StaticResource Input}"></TextBox>
+            </WrapPanel>
+            <WrapPanel Style="{StaticResource InputBox}">
+                <Label Style="{StaticResource InputBoxLabel}">Город</Label>
+                <ComboBox Style="{StaticResource InputComboBox}"></ComboBox>
+            </WrapPanel>
+        </WrapPanel>
+    </StackPanel>
 </Page>
