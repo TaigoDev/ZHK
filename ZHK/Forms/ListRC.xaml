@@ -10,25 +10,19 @@
     
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30">
-            </RowDefinition>
-            <RowDefinition Height="100">
-            </RowDefinition>
-            <RowDefinition>
-            </RowDefinition>
-            <RowDefinition Height="80">
-            </RowDefinition>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="90"/>
+            <RowDefinition/>
+            <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition>
-
-            </ColumnDefinition>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Label Style="{StaticResource PageTitle}">
             Список ЖК
         </Label>
-        <UniformGrid Grid.Row="1" Rows="1" Columns="2">
-            <ComboBox Style="{StaticResource Filter}" SelectionChanged="StatusFilter_SelectionChanged" x:Name="StatusFilter" Height="30" HorizontalAlignment="Stretch" Margin="20"/>
+        <UniformGrid Style="{StaticResource Filters}" Grid.Row="1">
+            <ComboBox Style="{StaticResource Filter}" SelectionChanged="StatusFilter_SelectionChanged" x:Name="StatusFilter"/>
             <ComboBox Style="{StaticResource Filter}" SelectionChanged="CityFilter_SelectionChanged" x:Name="CityFilter" Height="30" HorizontalAlignment="Stretch" Margin="20"/>
         </UniformGrid>
         <DataGrid Grid.Row="2" x:Name="DGridRC" AutoGenerateColumns="False" IsReadOnly="True">
@@ -41,8 +35,8 @@
                 <DataGridTextColumn Binding="{Binding BuildingCost}" Header="Затраты"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Border Grid.Row="3" Height="50" CornerRadius="10" Background="DarkSeaGreen">
-            <Button x:Name="BtnEditData" Click="BtnEditData_Click">Редактировать данные</Button>
+        <Border Style="{StaticResource EditDataButtonBorder}" Grid.Row="3">
+            <Button Style="{StaticResource EditDataButton}" x:Name="BtnEditData" Click="BtnEditData_Click">Редактировать данные</Button>
         </Border>
     </Grid>
     

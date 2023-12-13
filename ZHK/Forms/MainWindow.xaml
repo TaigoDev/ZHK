@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ZHK"
         mc:Ignorable="d"
-        Title="MainWindow" Foreground="White" Height="600" Width="1000" WindowStartupLocation="CenterScreen">
+        Title="MainWindow" Background="#4a5a87" Height="600" Width="1000" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
@@ -19,7 +19,7 @@
             <ColumnDefinition Width="25"/>
         </Grid.ColumnDefinitions>
 
-        <Border Grid.Row="1" Grid.Column="1" Padding="30 15" CornerRadius="25" Background="Gray">
+        <Border Grid.Row="1" Grid.Column="1" Padding="0 15" CornerRadius="30" Background="DarkGray">
             <UniformGrid Rows="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                 <Border Style="{StaticResource NavigationButtonBorder}">
                     <Button x:Name="BtnResComp" Click="BtnResComp_Click" Style="{StaticResource NavigationButton}" Content="Список ЖК"/>
@@ -33,9 +33,9 @@
             </UniformGrid>
         </Border>
 
-        <Border Padding="30 15" Grid.Row="2" Grid.Column="1" Margin="0 30 0 0" CornerRadius="20" Background="Gray">
+        <Border Padding="25" Grid.Row="2" Grid.Column="1" Margin="0 35 0 0" CornerRadius="30" Background="DarkGray">
             <DockPanel LastChildFill="True">
-                <Frame x:Name="MainFrame" Navigated="MainFrame_Navigated" NavigationUIVisibility="Hidden" VerticalAlignment="Stretch"></Frame>
+                <Frame x:Name="MainFrame" Navigated="MainFrame_Navigated" NavigationUIVisibility="Hidden"></Frame>
             </DockPanel>
         </Border>
         
