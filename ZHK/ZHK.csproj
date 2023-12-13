@@ -96,18 +96,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Forms\EditData.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Forms\EditObject.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Forms\Empty.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Forms\Hello.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -145,15 +133,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DBModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\EditData.xaml.cs">
-      <DependentUpon>EditData.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\EditObject.xaml.cs">
-      <DependentUpon>EditObject.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Empty.xaml.cs">
-      <DependentUpon>Empty.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\Hello.xaml.cs">
       <DependentUpon>Hello.xaml</DependentUpon>

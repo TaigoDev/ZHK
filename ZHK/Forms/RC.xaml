@@ -8,9 +8,17 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="RC">
 
-    <StackPanel>
-        <Label Margin="0 0 0 40" Style="{StaticResource PageTitle}">ЖК</Label>
-        <WrapPanel Orientation="Vertical">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Style="{StaticResource PageTitle}">ЖК</Label>
+        <WrapPanel Margin="0 40 0 0" Grid.Row="1" Orientation="Vertical">
             <WrapPanel Style="{StaticResource InputBox}">
                 <Label Style="{StaticResource InputBoxLabel}">Название</Label>
                 <TextBox x:Name="TxtBoxName" Style="{StaticResource Input}"></TextBox>
@@ -32,5 +40,16 @@
                 <ComboBox x:Name="ComboBoxStatus" Style="{StaticResource InputComboBox}"></ComboBox>
             </WrapPanel>
         </WrapPanel>
-    </StackPanel>
+        <UniformGrid Grid.Row="2" VerticalAlignment="Bottom" Columns="3">
+            <Border  Style="{StaticResource EditObjectButtonBorder}">
+                <Button x:Name="BtnAdd" Click="BtnAdd_Click" Style="{StaticResource EditObjectButton}">Добавить</Button>
+            </Border>
+            <Border  Style="{StaticResource EditObjectButtonBorder}">
+                <Button x:Name="BtnEdit" Click="BtnEdit_Click" Style="{StaticResource EditObjectButton}">Редактировать</Button>
+            </Border>
+            <Border Style="{StaticResource EditObjectButtonBorder}">
+                <Button x:Name="BtnDelete" Click="BtnDelete_Click" Style="{StaticResource EditObjectButton}">Удалить</Button>
+            </Border>
+        </UniformGrid>
+    </Grid>
 </Page>

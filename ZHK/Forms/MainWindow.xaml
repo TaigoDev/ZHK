@@ -35,7 +35,6 @@
 
         <Border Padding="30 15" Grid.Row="2" Grid.Column="1" Margin="0 30 0 0" CornerRadius="20" Background="Gray">
             <DockPanel LastChildFill="True">
-                <Frame x:Name="Editor" DockPanel.Dock="Bottom" NavigationUIVisibility="Hidden" Height="70"></Frame>
                 <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" VerticalAlignment="Stretch"></Frame>
             </DockPanel>
         </Border>

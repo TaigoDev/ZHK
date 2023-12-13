@@ -41,6 +41,9 @@
                 <DataGridTextColumn Binding="{Binding BuildingCost}" Header="Затраты"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <Border Grid.Row="3" Height="50" CornerRadius="10" Background="DarkSeaGreen">
+            <Button x:Name="BtnEditData" Click="BtnEditData_Click">Редактировать данные</Button>
+        </Border>
     </Grid>
     
 </Page>
