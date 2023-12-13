@@ -31,7 +31,9 @@ namespace ZHK.Forms
         public ListRC()
         {
             InitializeComponent();
-            DGridRC.ItemsSource = ЖК_311Entities.GetContext().ResidentialComplexes.ToList();
+            var db = new ЖК_311Entities();
+            var items = db.ResidentialComplexes.ToList();
+            DGridRC.ItemsSource = items;
             LogicMethods.SortByCityStatus(DGridRC);
             LogicMethods.GetUniqueValues("ResidentialComplex", "Status", StatusFilter);
             LogicMethods.GetUniqueValues("ResidentialComplex", "City", CityFilter);
@@ -48,5 +50,12 @@ namespace ZHK.Forms
         {
             LogicMethods.FilterCity(DGridRC, CityFilter);
         }
+
+        private void BtnEditData_Click(object sender, RoutedEventArgs e)
+        {
+            Switcher.MainFrame.Navigate(new RC(DGridRC));
+        }
+
+
     }
 }

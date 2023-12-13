@@ -35,7 +35,7 @@
 
         <Border Padding="30 15" Grid.Row="2" Grid.Column="1" Margin="0 30 0 0" CornerRadius="20" Background="Gray">
             <DockPanel LastChildFill="True">
-                <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" VerticalAlignment="Stretch"></Frame>
+                <Frame x:Name="MainFrame" Navigated="MainFrame_Navigated" NavigationUIVisibility="Hidden" VerticalAlignment="Stretch"></Frame>
             </DockPanel>
         </Border>
         
