@@ -59,8 +59,8 @@ namespace ZHK.Classes
                              join c in ЖК_311Entities.GetContext().ResidentialComplexes on h.ResidentialComplexID equals c.ID
                              join a in ЖК_311Entities.GetContext().Apartaments on h.ID equals a.HouseID into ap
                              from a in ap.DefaultIfEmpty().ToList()
-                             group new {h,c,a} by new {h.ID, h.Street, h.Number, c.Status} into g
-                             select new DGridHouse (g.Key.ID, g.Key.Street, g.Key.Number, g.Key.Status, g.Count(x=>x.a.IsSold == true), g.Count(x=>x.a.IsSold != true))).ToList();
+                             group new {h,c,a} by new {a.HouseID, h.ID, h.Street, h.Number, c.Status} into g
+                             select new DGridHouse (g.Key.HouseID, g.Key.ID, g.Key.Street, g.Key.Number, g.Key.Status, g.Count(x=>x.a.IsSold == true), g.Count(x=>x.a.IsSold != true))).ToList();
             return houseInfo;
         }
 
@@ -93,6 +93,18 @@ namespace ZHK.Classes
             dGripRC.ItemsSource = from rc in ЖК_311Entities.GetContext().ResidentialComplexes.ToList()
                                   where rc.City == filter.SelectedItem.ToString()
                                   select rc;
+        }
+        public static void FilterAddress(DataGrid dGripRC, ComboBox filter)
+        {
+            dGripRC.ItemsSource = from hs in ЖК_311Entities.GetContext().Houses.ToList()
+                                  where hs.Street == filter.SelectedItem.ToString()
+                                  select hs;
+        }
+        public static void FilterRC(DataGrid dGripRC, ComboBox filter)
+        {
+            dGripRC.ItemsSource = from hs in ЖК_311Entities.GetContext().Houses.ToList()
+                                  where hs.ResidentialComplexID == (byte)filter.SelectedItem
+                                  select hs;
         }
     }
 }

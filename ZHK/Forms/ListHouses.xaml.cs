@@ -34,29 +34,26 @@ namespace ZHK.Forms
         {
 
             InitializeComponent();
-            //var housesAndComplexes = LogicMethods.GetHousesAndComplexes();
             DGridHS.ItemsSource = LogicMethods.GetHouseInfo();
             LogicMethods.GetUniqueValues("House", "Street", AddressFilter);
-            LogicMethods.GetUniqueValues("ResidentialComplex", "Name", RCFilter);
+            LogicMethods.GetUniqueValues("House", "ResidentialComplexID", RCFilter);
         }
 
         private void BtnEditData_Click(object sender, RoutedEventArgs e)
         {
-
+            Switcher.MainFrame.Navigate(new HouseForm(DGridHS));
         }
 
-        private void AddressFilter_Selected(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void AddressFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            LogicMethods.FilterStatus(DGridHS, AddressFilter);
 
         }
 
         private void RCFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            LogicMethods.FilterStatus(DGridHS, RCFilter);
 
         }
     }
