@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ListRC" >
-    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
@@ -39,5 +39,5 @@
             <Button Style="{StaticResource EditDataButton}" x:Name="BtnEditData" Click="BtnEditData_Click">Редактировать данные</Button>
         </Border>
     </Grid>
-    
+
 </Page>

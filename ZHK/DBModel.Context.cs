@@ -20,10 +20,10 @@ namespace ZHK
         {
         }
     
+        //если будут лаги - вернуть if
         public static ЖК_311Entities GetContext()
         {
-            if (_context == null )
-                _context = new ЖК_311Entities();
+            _context = new ЖК_311Entities();
             return _context;
         }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

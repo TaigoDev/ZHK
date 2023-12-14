@@ -52,14 +52,11 @@ namespace ZHK.Classes
             }
         }
 
-        //В интерфейсе ЖК реализуйте отображение списка домов, которые 
-        //находятся в рамках выбранного ЖК с отображением улицы и
-        //номера дома.
         public static List<House> GetHousesByComplexId(int complexID)
         {
-            var db = new ЖК_311Entities(); 
+            var db = new ЖК_311Entities();
             var houses = db.Houses.Where(h => h.ID == complexID);
-            return houses.ToList();          
+            return houses.ToList();
         }
 
         public static bool CanChangeStatusToPlan(int complexID)

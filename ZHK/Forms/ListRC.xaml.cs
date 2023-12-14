@@ -23,11 +23,6 @@ namespace ZHK.Forms
     /// </summary>
     public partial class ListRC : Page
     {
-        //Нельзя называть проект таким же именем, как и БД
-
-        //Т.к было одинаковое название проект не запускался, и выдавал ошибку 13.12.23 (1:15РМ)
-        //Пересоздали проект и репозиторий. Настроили все заново. 13.12.23 (1:20РМ)
-        //Запустился проект, но грид не отображается 13.12.23 (1:26РМ)
         public ListRC()
         {
             InitializeComponent();
@@ -37,10 +32,8 @@ namespace ZHK.Forms
             LogicMethods.SortByCityStatus(DGridRC);
             LogicMethods.GetUniqueValues("ResidentialComplex", "Status", StatusFilter);
             LogicMethods.GetUniqueValues("ResidentialComplex", "City", CityFilter);
-
         }
 
-        //Изменение фильтра 
         private void StatusFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             LogicMethods.FilterStatus(DGridRC, StatusFilter);
@@ -55,7 +48,5 @@ namespace ZHK.Forms
         {
             Switcher.MainFrame.Navigate(new RC(DGridRC));
         }
-
-
     }
 }

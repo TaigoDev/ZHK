@@ -17,21 +17,17 @@ using ZHK.Classes;
 
 namespace ZHK.Forms
 {
-    /// <summary>
-    /// Логика взаимодействия для RC.xaml
-    /// </summary>
+
     public partial class RC : Page
     {
         DataGrid dGridRC;
         public RC(DataGrid dGridRc)
         {
             dGridRC = dGridRc;
-
             InitializeComponent();
 
-
             LogicMethods.GetUniqueValues("ResidentialComplex", "Status", ComboBoxStatus);
-            if (dGridRC.SelectedItem != null )
+            if (dGridRC.SelectedItem != null)
             {
                 var tempHouses = LogicMethods.GetHousesByComplexId(((ResidentialComplex)dGridRC.SelectedItem).ID);
                 test.Text = string.Join("", tempHouses.ConvertAll(e => $"{e.ID} {e.Number} {e.Street}"));
@@ -81,9 +77,8 @@ namespace ZHK.Forms
                     }
                 }
                 else
-                {
                     MessageBox.Show("error");
-                }
+                
             }
         }
 
@@ -103,8 +98,6 @@ namespace ZHK.Forms
                 }
             }
             Switcher.MainFrame.Navigate(new ListRC());
-
         }
-
     }
 }
