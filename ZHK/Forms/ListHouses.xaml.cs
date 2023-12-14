@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Management.Instrumentation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -28,17 +29,16 @@ namespace ZHK.Forms
         //количество проданных квартир - Apartments (но нужно брать именно в этом доме)
         //количество продающихся квартир - Apartments (!IsSold)
 
+        //SoldingApart|SoldApart|StatusRC
         public ListHouses()
         {
+
             InitializeComponent();
+
             var housesAndComplexes = LogicMethods.GetHousesAndComplexes();
             DGridHS.ItemsSource = housesAndComplexes;
             LogicMethods.GetUniqueValues("House", "Street", AddressFilter);
             LogicMethods.GetUniqueValues("ResidentialComplex", "Name", RCFilter);
-            LogicMethods.GetUniqueValues("House", "Street", AddressFilter);
-            LogicMethods.GetUniqueValues("ResidentialComplex", "Name", RCFilter);
-
-            
         }
 
         private void BtnEditData_Click(object sender, RoutedEventArgs e)

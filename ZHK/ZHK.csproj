@@ -67,6 +67,7 @@
     <Compile Include="Apartament.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Classes\DGridHouse.cs" />
     <Compile Include="Classes\LogicMethods.cs" />
     <Compile Include="Classes\Switcher.cs" />
     <Compile Include="DBModel.cs">

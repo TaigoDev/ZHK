@@ -53,7 +53,6 @@ namespace ZHK.Classes
         }
 
 
-
         public static List<House> GetHousesAndComplexes()
         {
             var housesAndComplexes =

@@ -30,9 +30,9 @@
                 <DataGridTextColumn Binding="{Binding ResidentialComplexID}" Header="ЖК"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding Street}" Header="Улица"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding Number}" Header="Номер"></DataGridTextColumn>
-                <DataGridTextColumn Binding="{Binding City}" Header="Статус строительства ЖК"></DataGridTextColumn>
-                <DataGridTextColumn Binding="{Binding ComplexValueAdded}" Header="Проданных квартир"></DataGridTextColumn>
-                <DataGridTextColumn Binding="{Binding Blalala}" Header="Продающихся квартир"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding StatusRC}" Header="Статус строительства ЖК"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding SoldApart}" Header="Проданных квартир"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding SoldingApart}" Header="Продающихся квартир"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
         <Border Style="{StaticResource EditDataButtonBorder}" Grid.Row="3">
