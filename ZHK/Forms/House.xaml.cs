@@ -31,6 +31,17 @@ namespace ZHK.Forms
 
             InitializeComponent();
             LogicMethods.GetUniqueValues("House", "ResidentialComplexID", ComboBoxRC);
+            if (dGridHS.SelectedItem != null)
+            {
+                var db = new ЖК_311Entities();
+                var house = db.Houses.First(e => e.ID == ((DGridHouse)dGridHS.SelectedItem).IDHouse);
+                TxtBoxAdress.Text = house.Street.ToString();
+                TxtBoxNumber.Text = house.Number.ToString();
+                TxtBoxKDC.Text = house.HouseValueAdded.ToString();
+                TxtBoxMoney.Text = house.BuildingCost.ToString();
+                ComboBoxRC.Text = house.ResidentialComplexID.ToString();
+
+            }
 
         }
 
@@ -59,9 +70,26 @@ namespace ZHK.Forms
         }
 
 
-        private void BtnEdit_Click(object sender, RoutedEventArgs e)
+        private async void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
+            using (SqlConnection conn = new SqlConnection("Data Source=localhost;Initial Catalog=ЖК_311;Integrated Security=SSPI;"))
+            {
+                conn.Open();
 
+
+                    using (SqlCommand cmd = new SqlCommand($"UPDATE House SET ResidentialComplexID = @value1, Street = @value2, Number = @value3, BuildingCost = @value4, HouseValueAdded = @value5 WHERE ID = @value6", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@value1", ComboBoxRC.SelectedItem.ToString());
+                        cmd.Parameters.AddWithValue("@value2", TxtBoxAdress.Text);
+                        cmd.Parameters.AddWithValue("@value3", TxtBoxNumber.Text);
+                        cmd.Parameters.AddWithValue("@value4", TxtBoxMoney.Text);
+                        cmd.Parameters.AddWithValue("@value5", TxtBoxKDC.Text);
+                        cmd.Parameters.AddWithValue("@value6", ((DGridHouse)dGridHS.SelectedItem).IDHouse);
+                        await cmd.ExecuteNonQueryAsync();
+                        Switcher.MainFrame.Navigate(new ListHouses());
+                    }
+                
+            }
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
