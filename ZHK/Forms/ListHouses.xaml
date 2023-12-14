@@ -22,17 +22,17 @@
             Список домов
         </Label>
         <UniformGrid Style="{StaticResource Filters}" Grid.Row="1">
-            <ComboBox Style="{StaticResource Filter}" SelectionChanged="StatusFilter_SelectionChanged" x:Name="StatusFilter"/>
-            <ComboBox Style="{StaticResource Filter}" SelectionChanged="CityFilter_SelectionChanged" x:Name="CityFilter"/>
+            <ComboBox Style="{StaticResource Filter}" SelectionChanged="AddressFilter_SelectionChanged" x:Name="AddressFilter"/>
+            <ComboBox Style="{StaticResource Filter}" SelectionChanged="RCFilter_SelectionChanged" x:Name="RCFilter"/>
         </UniformGrid>
-        <DataGrid Grid.Row="2" x:Name="DGridRC">
+        <DataGrid Grid.Row="2" x:Name="DGridHS">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Name}" Header="ЖК"></DataGridTextColumn>
-                <DataGridTextColumn Binding="{Binding Status}" Header="Улица"></DataGridTextColumn>
-                <DataGridTextColumn Binding="{Binding Houses.Count}" Header="Номер"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding ResidentialComplexID}" Header="ЖК"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Street}" Header="Улица"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Number}" Header="Номер"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding City}" Header="Статус строительства ЖК"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding ComplexValueAdded}" Header="Проданных квартир"></DataGridTextColumn>
-                <DataGridTextColumn Binding="{Binding BuildingCost}" Header="Продающихся квартир"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Blalala}" Header="Продающихся квартир"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
         <Border Style="{StaticResource EditDataButtonBorder}" Grid.Row="3">

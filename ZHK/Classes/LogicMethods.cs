@@ -52,6 +52,19 @@ namespace ZHK.Classes
             }
         }
 
+
+
+        public static List<House> GetHousesAndComplexes()
+        {
+            var housesAndComplexes =
+                                    from house in ЖК_311Entities.GetContext().Houses.ToList()
+                                    join complex in ЖК_311Entities.GetContext().ResidentialComplexes on house.ResidentialComplexID equals complex.ID
+                                    select new { House = house, ResidentialComplex = complex };
+           var houses = housesAndComplexes.Select(hc => hc.House).ToList();
+
+            return houses;
+        }
+
         public static List<House> GetHousesByComplexId(int complexID)
         {
             var db = new ЖК_311Entities();
