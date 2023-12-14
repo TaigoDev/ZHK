@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Input;
 
 namespace ZHK.Classes
 {
@@ -52,6 +53,8 @@ namespace ZHK.Classes
             }
         }
 
+
+
         public static List<DGridHouse> GetHouseInfo()
         {
             var a1 = ЖК_311Entities.GetContext().Apartaments.ToList();
@@ -59,6 +62,7 @@ namespace ZHK.Classes
                              join c in ЖК_311Entities.GetContext().ResidentialComplexes on h.ResidentialComplexID equals c.ID
                              join a in ЖК_311Entities.GetContext().Apartaments on h.ID equals a.HouseID into ap
                              from a in ap.DefaultIfEmpty().ToList()
+                             where a != null 
                              group new {h,c,a} by new {a.HouseID, h.ID, h.Street, h.Number, c.Status} into g
                              select new DGridHouse (g.Key.HouseID, g.Key.ID, g.Key.Street, g.Key.Number, g.Key.Status, g.Count(x=>x.a.IsSold == true), g.Count(x=>x.a.IsSold != true))).ToList();
             return houseInfo;
@@ -96,14 +100,15 @@ namespace ZHK.Classes
         }
         public static void FilterAddress(DataGrid dGripRC, ComboBox filter)
         {
-            dGripRC.ItemsSource = from hs in ЖК_311Entities.GetContext().Houses.ToList()
+            var db = new ЖК_311Entities();
+            dGripRC.ItemsSource = from hs in db.Houses.ToList()
                                   where hs.Street == filter.SelectedItem.ToString()
                                   select hs;
         }
         public static void FilterRC(DataGrid dGripRC, ComboBox filter)
         {
             dGripRC.ItemsSource = from hs in ЖК_311Entities.GetContext().Houses.ToList()
-                                  where hs.ResidentialComplexID == (byte)filter.SelectedItem
+                                  where hs.ResidentialComplexID.ToString() == filter.SelectedItem.ToString()
                                   select hs;
         }
     }

@@ -24,6 +24,10 @@
                 <TextBox x:Name="TxtBoxAdress" Style="{StaticResource Input}"></TextBox>
             </WrapPanel>
             <WrapPanel Style="{StaticResource InputBox}">
+                <Label Style="{StaticResource InputBoxLabel}">Номер</Label>
+                <TextBox x:Name="TxtBoxNumber" Style="{StaticResource Input}"></TextBox>
+            </WrapPanel>
+            <WrapPanel Style="{StaticResource InputBox}">
                 <Label Style="{StaticResource InputBoxLabel}">ЖК</Label>
                 <ComboBox x:Name="ComboBoxRC" Style="{StaticResource InputComboBox}"></ComboBox>
             </WrapPanel>

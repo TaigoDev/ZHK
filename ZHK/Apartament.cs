@@ -14,6 +14,26 @@ namespace ZHK
     
     public partial class Apartament
     {
+        public Apartament()
+        {
+
+        }
+
+        public Apartament(short iD, byte houseID, short number, decimal area, byte countOfRooms, byte section, byte floor, bool? isSold, int? buildingCost, int? apartmentValueAdded, byte? isDeleted)
+        {
+            ID = iD;
+            HouseID = houseID;
+            Number = number;
+            Area = area;
+            CountOfRooms = countOfRooms;
+            Section = section;
+            Floor = floor;
+            IsSold = isSold;
+            BuildingCost = buildingCost;
+            ApartmentValueAdded = apartmentValueAdded;
+            IsDeleted = isDeleted;
+        }
+
         public short ID { get; set; }
         public byte HouseID { get; set; }
         public short Number { get; set; }

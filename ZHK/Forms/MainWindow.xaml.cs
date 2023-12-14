@@ -45,7 +45,7 @@ namespace ZHK
 
         private void MainFrame_Navigated(object sender, NavigationEventArgs e)
         {
-            //DGridRC.ItemsSource = ЖК_311Entities.GetContext().ResidentialComplexes.ToList();
+            //Switcher.DGridHS.ItemsSource = ЖК_311Entities.GetContext().Houses.ToList();
         }
     }
 }

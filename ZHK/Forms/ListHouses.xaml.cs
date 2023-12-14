@@ -34,6 +34,9 @@ namespace ZHK.Forms
         {
 
             InitializeComponent();
+            var db = new ЖК_311Entities();
+            var items = db.Houses.ToList();
+            DGridHS.ItemsSource = items;
             DGridHS.ItemsSource = LogicMethods.GetHouseInfo();
             LogicMethods.GetUniqueValues("House", "Street", AddressFilter);
             LogicMethods.GetUniqueValues("House", "ResidentialComplexID", RCFilter);
@@ -47,13 +50,12 @@ namespace ZHK.Forms
 
         private void AddressFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            LogicMethods.FilterStatus(DGridHS, AddressFilter);
-
+            LogicMethods.FilterAddress(DGridHS, AddressFilter);
         }
 
         private void RCFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            LogicMethods.FilterStatus(DGridHS, RCFilter);
+            LogicMethods.FilterRC(DGridHS, RCFilter);
 
         }
     }

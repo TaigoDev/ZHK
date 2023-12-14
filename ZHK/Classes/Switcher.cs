@@ -10,5 +10,6 @@ namespace ZHK.Classes
     class Switcher
     {
         public static Frame MainFrame;
+        public static DataGrid DGridHS;
     }
 }
