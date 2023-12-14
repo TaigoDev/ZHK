@@ -34,9 +34,8 @@ namespace ZHK.Forms
         {
 
             InitializeComponent();
-
-            var housesAndComplexes = LogicMethods.GetHousesAndComplexes();
-            DGridHS.ItemsSource = housesAndComplexes;
+            //var housesAndComplexes = LogicMethods.GetHousesAndComplexes();
+            DGridHS.ItemsSource = LogicMethods.GetHouseInfo();
             LogicMethods.GetUniqueValues("House", "Street", AddressFilter);
             LogicMethods.GetUniqueValues("ResidentialComplex", "Name", RCFilter);
         }

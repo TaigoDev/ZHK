@@ -8,11 +8,21 @@ namespace ZHK.Classes
 {
     public class DGridHouse
     {
-        string ResidentialComplexID { get; set; }
-        string Street {  get; set; }
-        string Number { get; set; } 
-        string StatusRC { get; set; }
-        string SoldApart { get; set; }
-        string SoldingApart { get; set; }
+        public DGridHouse(int residentialComplexID, string street, string number, string statusRC, int soldApart, int soldingApart)
+        {
+            ResidentialComplexID = residentialComplexID;
+            Street = street;
+            Number = number;
+            StatusRC = statusRC;
+            SoldApart = soldApart;
+            SoldingApart = soldingApart;
+        }
+
+        public int ResidentialComplexID { get; set; }
+        public string Street {  get; set; }
+        public string Number { get; set; }
+        public string StatusRC { get; set; }
+        public int SoldApart { get; set; }
+        public int SoldingApart { get; set; }
     }
 }
