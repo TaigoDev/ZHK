@@ -35,8 +35,8 @@
                 <DataGridTextColumn Binding="{Binding BuildingCost}" Header="Затраты"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Border Style="{StaticResource EditDataButtonBorder}" Grid.Row="3">
-            <Button Style="{StaticResource EditDataButton}" x:Name="BtnEditData" Click="BtnEditData_Click">Редактировать данные</Button>
-        </Border>
+        
+        <Button Style="{StaticResource EditDataButton}" Grid.Row="3" x:Name="BtnEditData" Click="BtnEditData_Click">Редактировать данные</Button>
+        
     </Grid>
 </Page>

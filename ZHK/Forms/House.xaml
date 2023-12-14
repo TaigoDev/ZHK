@@ -42,15 +42,9 @@
             <TextBlock x:Name="test"></TextBlock>
         </UniformGrid>
         <UniformGrid Grid.Row="2" VerticalAlignment="Bottom" Columns="3">
-            <Border  Style="{StaticResource EditObjectButtonBorder}">
-                <Button x:Name="BtnAdd" Click="BtnAdd_Click" Style="{StaticResource EditObjectButton}">Добавить</Button>
-            </Border>
-            <Border  Style="{StaticResource EditObjectButtonBorder}">
-                <Button x:Name="BtnEdit" Click="BtnEdit_Click" Style="{StaticResource EditObjectButton}">Редактировать</Button>
-            </Border>
-            <Border Style="{StaticResource EditObjectButtonBorder}">
-                <Button x:Name="BtnDelete" Click="BtnDelete_Click" Style="{StaticResource EditObjectButton}">Удалить</Button>
-            </Border>
+            <Button x:Name="BtnAdd" Click="BtnAdd_Click" Style="{StaticResource EditObjectButton}">Добавить</Button>
+            <Button x:Name="BtnEdit" Click="BtnEdit_Click" Style="{StaticResource EditObjectButton}">Редактировать</Button>
+            <Button x:Name="BtnDelete" Click="BtnDelete_Click" Style="{StaticResource EditObjectButton}">Удалить</Button>
         </UniformGrid>
     </Grid>
 </Page>

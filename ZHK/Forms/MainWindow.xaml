@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ZHK"
         mc:Ignorable="d"
-        Title="MainWindow" Background="#4a5a87" Height="600" Width="1000" WindowStartupLocation="CenterScreen">
+        Title="MainWindow" Background="#4a5a87" Height="650" Width="1100" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
@@ -19,21 +19,15 @@
             <ColumnDefinition Width="25"/>
         </Grid.ColumnDefinitions>
 
-        <Border Grid.Row="1" Grid.Column="1" Padding="0 15" CornerRadius="30" Background="DarkGray">
+        <Border Grid.Row="1" Grid.Column="1" Padding="25 15" CornerRadius="30" Background="SlateGray">
             <UniformGrid Rows="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                <Border Style="{StaticResource NavigationButtonBorder}">
-                    <Button x:Name="BtnResComp" Click="BtnResComp_Click" Style="{StaticResource NavigationButton}" Content="Список ЖК"/>
-                </Border>
-                <Border Style="{StaticResource NavigationButtonBorder}">
-                    <Button x:Name="BtnHouse" Click="BtnHouse_Click" Style="{StaticResource NavigationButton}" Content="Список домов"/>
-                </Border>
-                <Border Style="{StaticResource NavigationButtonBorder}">
-                    <Button x:Name="BtnApartment" Click="BtnApartment_Click" Content="Список квартир" Style="{StaticResource NavigationButton}"/>
-                </Border>
+                <Button Margin="0 0 20 0" x:Name="BtnResComp" Click="BtnResComp_Click" Content="Список ЖК" Style="{StaticResource NavigationButton}"/>
+                <Button x:Name="BtnHouse" Click="BtnHouse_Click" Content="Список домов" Style="{StaticResource NavigationButton}"/>
+                <Button Margin="20 0 0 0" x:Name="BtnApartment" Click="BtnApartment_Click" Content="Список квартир" Style="{StaticResource NavigationButton}"/>
             </UniformGrid>
         </Border>
 
-        <Border Padding="25" Grid.Row="2" Grid.Column="1" Margin="0 35 0 0" CornerRadius="30" Background="DarkGray">
+        <Border Padding="25" Grid.Row="2" Grid.Column="1" Margin="0 30 0 0" CornerRadius="30" Background="SlateGray">
             <DockPanel LastChildFill="True">
                 <Frame x:Name="MainFrame" Navigated="MainFrame_Navigated" NavigationUIVisibility="Hidden"></Frame>
             </DockPanel>

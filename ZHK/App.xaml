@@ -4,39 +4,52 @@
              xmlns:local="clr-namespace:ZHK"
              StartupUri="Forms/MainWindow.xaml">
     <Application.Resources>
-        
+
         <!-- BASIC STYLES -->
-        <Style TargetType="Button">
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="BorderBrush" Value="Transparent"/>
-        </Style>
         <Style TargetType="DataGrid">
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="AutoGenerateColumns" Value="False"/>
             <Setter Property="IsReadOnly" Value="True"/>
         </Style>
         <Style TargetType="DataGridColumnHeader">
-            <Setter Property="MinWidth" Value="125"/>
+            <Setter Property="MinWidth" Value="100"/>
             <Setter Property="Background" Value="Transparent"/>
         </Style>
-        
+
         <!-- ELEMENTS STYLES -->
         <!-- HEADER -->
         <Style x:Key="NavigationButton" TargetType="Button">
             <Setter Property="FontSize" Value="20" />
+            <Setter Property="VerticalAlignment" Value="Stretch"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
             <Setter Property="FontWeight" Value="DemiBold" />
             <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Background" Value="#2a375e"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="bg"
+                Background="{TemplateBinding Background}"
+                BorderBrush="Transparent" BorderThickness="2" CornerRadius="15" Padding="45 20">
+                            <ContentPresenter HorizontalAlignment="Center"
+                            VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver"
+                   Value="True">
+                                <Setter Property="Background"
+                    Value="#FF1D224D"
+                    TargetName="bg" />
+                                <Setter Property="BorderBrush"
+Value="WhiteSmoke"
+TargetName="bg" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
-        <Style x:Key="NavigationButtonBorder" TargetType="Border">
-            <Setter Property="CornerRadius" Value="15" />
-            <Setter Property="Background" Value="#2a375e" />
-            <Setter Property="Margin" Value="20 0" />
-        </Style>
-        
+
         <!-- WORKSPACE -->
         <Style x:Key="PageTitle" TargetType="Label">
             <Setter Property="HorizontalAlignment" Value="Center" />
@@ -44,7 +57,7 @@
             <Setter Property="FontSize" Value="20" />
             <Setter Property="FontWeight" Value="Bold" />
         </Style>
-        
+
         <!-- LIST PAGES -->
         <Style x:Key="Filters" TargetType="UniformGrid">
             <Setter Property="Columns" Value="2"/>
@@ -77,35 +90,76 @@
         <Style x:Key="InputComboBox" TargetType="ComboBox">
             <Setter Property="MinWidth" Value="150" />
         </Style>
-        
+
         <!-- EDIT OBJECT BUTTONS -->
-        <Style x:Key="EditObjectButtonBorder" TargetType="Border">
-            <Setter Property="CornerRadius" Value="15" />
-            <Setter Property="Background" Value="SeaGreen" />
-            <Setter Property="Margin" Value="30 0" />
-        </Style>
         <Style x:Key="EditObjectButton" TargetType="Button">
-            <Setter Property="Padding" Value="10" />
-            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Margin" Value="20 0" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="VerticalAlignment" Value="Stretch"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
             <Setter Property="FontWeight" Value="DemiBold" />
-            <Setter Property="Background" Value="Transparent" />
-            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="SeaGreen"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="bg"
+                Background="{TemplateBinding Background}"
+                BorderBrush="Transparent" BorderThickness="2" CornerRadius="15" Padding="5 15">
+                            <ContentPresenter HorizontalAlignment="Center"
+                            VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver"
+                   Value="True">
+                                <Setter Property="Background"
+                    Value="darkseagreen"
+                    TargetName="bg" />
+                                <Setter Property="BorderBrush"
+Value="WhiteSmoke"
+TargetName="bg" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
-        
+
         <!-- EDIT DATA BUTTON -->
-        <Style x:Key="EditDataButtonBorder" TargetType="Border">
-            <Setter Property="Height" Value="40" />
-            <Setter Property="CornerRadius" Value="10" />
-            <Setter Property="Background" Value="SeaGreen" />
-            
-        </Style>
         <Style x:Key="EditDataButton" TargetType="Button">
-            <Setter Property="Padding" Value="10 5" />
-            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="MaxHeight" Value="50" />
+            <Setter Property="MaxWidth" Value="700" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="VerticalAlignment" Value="Stretch"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
             <Setter Property="FontWeight" Value="DemiBold" />
-            <Setter Property="Background" Value="Transparent"></Setter>
-            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="SeaGreen"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="bg"
+                Background="{TemplateBinding Background}"
+                BorderBrush="Transparent" BorderThickness="2" CornerRadius="15">
+                            <ContentPresenter HorizontalAlignment="Center"
+                            VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver"
+                   Value="True">
+                                <Setter Property="Background"
+                    Value="DarkSeaGreen"
+                    TargetName="bg" />
+                                <Setter Property="BorderBrush"
+Value="WhiteSmoke"
+TargetName="bg" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
+
 
     </Application.Resources>
 </Application>
