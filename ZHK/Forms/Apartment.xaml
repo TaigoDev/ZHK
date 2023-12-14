@@ -5,10 +5,46 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ZHK.Forms"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="800" d:Background="SlateGray"
       Title="Apartment">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Style="{StaticResource PageTitle}">Квартира</Label>
+        <UniformGrid Style="{StaticResource ObjectInputs}" Grid.Row="1">
+            <WrapPanel Style="{StaticResource InputBox}">
+                <Label Style="{StaticResource InputBoxLabel}">Название</Label>
+                <TextBox x:Name="TxtBoxName" Style="{StaticResource Input}"></TextBox>
+            </WrapPanel>
+            <WrapPanel Style="{StaticResource InputBox}">
+                <Label Style="{StaticResource InputBoxLabel}">КДС</Label>
+                <TextBox x:Name="TxtBoxKDC" Style="{StaticResource Input}"></TextBox>
+            </WrapPanel>
+            <WrapPanel Style="{StaticResource InputBox}">
+                <Label Style="{StaticResource InputBoxLabel}">Затраты</Label>
+                <TextBox x:Name="TxtBoxMoney" Style="{StaticResource Input}"></TextBox>
+            </WrapPanel>
+            <WrapPanel Style="{StaticResource InputBox}">
+                <Label Style="{StaticResource InputBoxLabel}">Город</Label>
+                <TextBox x:Name="TxtBoxCity" Style="{StaticResource Input}"></TextBox>
+            </WrapPanel>
+            <WrapPanel Style="{StaticResource InputBox}">
+                <Label Style="{StaticResource InputBoxLabel}">Статус</Label>
+                <ComboBox x:Name="ComboBoxStatus" Style="{StaticResource InputComboBox}"></ComboBox>
+            </WrapPanel>
+            <TextBlock x:Name="test"></TextBlock>
+        </UniformGrid>
+        <UniformGrid Grid.Row="2" VerticalAlignment="Bottom" Columns="3">
+            <Button x:Name="BtnAdd" Click="BtnAdd_Click" Style="{StaticResource EditObjectButton}">Добавить</Button>
+            <Button x:Name="BtnEdit" Click="BtnEdit_Click" Style="{StaticResource EditObjectButton}">Редактировать</Button>
+            <Button x:Name="BtnDelete" Click="BtnDelete_Click" Style="{StaticResource EditObjectButton}">Удалить</Button>
+        </UniformGrid>
     </Grid>
 </Page>

@@ -24,5 +24,10 @@ namespace ZHK.Forms
         {
             InitializeComponent();
         }
+
+        private void BtnEditData_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

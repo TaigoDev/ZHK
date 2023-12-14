@@ -5,10 +5,38 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ZHK.Forms"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="800" d:Background="SlateGray"
       Title="ListApartments">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="90"/>
+            <RowDefinition/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label Style="{StaticResource PageTitle}">
+            Список квартир
+        </Label>
+        <UniformGrid Style="{StaticResource Filters}" Grid.Row="1">
+            <ComboBox Style="{StaticResource Filter}" x:Name="StatusFilter"/>
+            <ComboBox Style="{StaticResource Filter}" x:Name="CityFilter"/>
+        </UniformGrid>
+        <DataGrid Grid.Row="2" x:Name="DGridAP">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Name}" Header="Название"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Status}" Header="Статус"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Houses.Count}" Header="Дома"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding City}" Header="Города"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding ComplexValueAdded}" Header="КДС"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding BuildingCost}" Header="Затраты"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button Style="{StaticResource EditDataButton}" Grid.Row="3" x:Name="BtnEditData" Click="BtnEditData_Click">Редактировать данные</Button>
+
     </Grid>
 </Page>
