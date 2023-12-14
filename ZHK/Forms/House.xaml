@@ -9,6 +9,44 @@
       Title="House">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Style="{StaticResource PageTitle}">Дом</Label>
+        <UniformGrid Style="{StaticResource ObjectInputs}" Grid.Row="1">
+            <WrapPanel Style="{StaticResource InputBox}">
+                <Label Style="{StaticResource InputBoxLabel}">Адрес</Label>
+                <TextBox x:Name="TxtBoxAdress" Style="{StaticResource Input}"></TextBox>
+            </WrapPanel>
+            <WrapPanel Style="{StaticResource InputBox}">
+                <Label Style="{StaticResource InputBoxLabel}">ЖК</Label>
+                <ComboBox x:Name="ComboBoxRC" Style="{StaticResource InputComboBox}"></ComboBox>
+            </WrapPanel>
+            <WrapPanel Style="{StaticResource InputBox}">
+                <Label Style="{StaticResource InputBoxLabel}">КДС</Label>
+                <TextBox x:Name="TxtBoxKDC" Style="{StaticResource Input}"></TextBox>
+            </WrapPanel>
+            <WrapPanel Style="{StaticResource InputBox}">
+                <Label Style="{StaticResource InputBoxLabel}">Затраты</Label>
+                <TextBox x:Name="TxtBoxMoney" Style="{StaticResource Input}"></TextBox>
+            </WrapPanel>
+            <TextBlock x:Name="test"></TextBlock>
+        </UniformGrid>
+        <UniformGrid Grid.Row="2" VerticalAlignment="Bottom" Columns="3">
+            <Border  Style="{StaticResource EditObjectButtonBorder}">
+                <Button x:Name="BtnAdd" Click="BtnAdd_Click" Style="{StaticResource EditObjectButton}">Добавить</Button>
+            </Border>
+            <Border  Style="{StaticResource EditObjectButtonBorder}">
+                <Button x:Name="BtnEdit" Click="BtnEdit_Click" Style="{StaticResource EditObjectButton}">Редактировать</Button>
+            </Border>
+            <Border Style="{StaticResource EditObjectButtonBorder}">
+                <Button x:Name="BtnDelete" Click="BtnDelete_Click" Style="{StaticResource EditObjectButton}">Удалить</Button>
+            </Border>
+        </UniformGrid>
     </Grid>
 </Page>

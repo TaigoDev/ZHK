@@ -9,6 +9,34 @@
       Title="ListHouses">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="90"/>
+            <RowDefinition/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label Style="{StaticResource PageTitle}">
+            Список домов
+        </Label>
+        <UniformGrid Style="{StaticResource Filters}" Grid.Row="1">
+            <ComboBox Style="{StaticResource Filter}" SelectionChanged="StatusFilter_SelectionChanged" x:Name="StatusFilter"/>
+            <ComboBox Style="{StaticResource Filter}" SelectionChanged="CityFilter_SelectionChanged" x:Name="CityFilter"/>
+        </UniformGrid>
+        <DataGrid Grid.Row="2" x:Name="DGridRC">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Name}" Header="ЖК"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Status}" Header="Улица"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Houses.Count}" Header="Номер"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding City}" Header="Статус строительства ЖК"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding ComplexValueAdded}" Header="Проданных квартир"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding BuildingCost}" Header="Продающихся квартир"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Border Style="{StaticResource EditDataButtonBorder}" Grid.Row="3">
+            <Button Style="{StaticResource EditDataButton}" x:Name="BtnEditData" Click="BtnEditData_Click">Редактировать данные</Button>
+        </Border>
     </Grid>
 </Page>

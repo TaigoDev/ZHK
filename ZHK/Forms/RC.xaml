@@ -18,7 +18,7 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Label Grid.Row="0" Style="{StaticResource PageTitle}">ЖК</Label>
-        <WrapPanel Margin="0 40 0 0" Grid.Row="1" Orientation="Vertical">
+        <UniformGrid Style="{StaticResource ObjectInputs}" Grid.Row="1">
             <WrapPanel Style="{StaticResource InputBox}">
                 <Label Style="{StaticResource InputBoxLabel}">Название</Label>
                 <TextBox x:Name="TxtBoxName" Style="{StaticResource Input}"></TextBox>
@@ -40,7 +40,7 @@
                 <ComboBox x:Name="ComboBoxStatus" Style="{StaticResource InputComboBox}"></ComboBox>
             </WrapPanel>
             <TextBlock x:Name="test"></TextBlock>
-        </WrapPanel>
+        </UniformGrid>
         <UniformGrid Grid.Row="2" VerticalAlignment="Bottom" Columns="3">
             <Border  Style="{StaticResource EditObjectButtonBorder}">
                 <Button x:Name="BtnAdd" Click="BtnAdd_Click" Style="{StaticResource EditObjectButton}">Добавить</Button>
