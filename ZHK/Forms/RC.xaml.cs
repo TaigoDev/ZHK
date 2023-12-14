@@ -26,14 +26,15 @@ namespace ZHK.Forms
         public RC(DataGrid dGridRc)
         {
             dGridRC = dGridRc;
+
             InitializeComponent();
 
-            var tempHouses = LogicMethods.GetHousesByComplexId(((ResidentialComplex)dGridRC.SelectedItem).ID);
-            test.Text = string.Join("", tempHouses.ConvertAll(e => $"{e.ID} {e.Number} {e.Street}"));
 
             LogicMethods.GetUniqueValues("ResidentialComplex", "Status", ComboBoxStatus);
             if (dGridRC.SelectedItem != null )
             {
+                var tempHouses = LogicMethods.GetHousesByComplexId(((ResidentialComplex)dGridRC.SelectedItem).ID);
+                test.Text = string.Join("", tempHouses.ConvertAll(e => $"{e.ID} {e.Number} {e.Street}"));
                 TxtBoxName.Text = ((ResidentialComplex)dGridRC.SelectedItem).Name;
                 TxtBoxCity.Text = ((ResidentialComplex)dGridRC.SelectedItem).City;
                 TxtBoxKDC.Text = ((ResidentialComplex)dGridRC.SelectedItem).ComplexValueAdded.ToString();
