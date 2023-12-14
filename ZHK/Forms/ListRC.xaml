@@ -39,5 +39,4 @@
             <Button Style="{StaticResource EditDataButton}" x:Name="BtnEditData" Click="BtnEditData_Click">Редактировать данные</Button>
         </Border>
     </Grid>
-
 </Page>
