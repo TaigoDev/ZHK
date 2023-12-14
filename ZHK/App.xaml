@@ -28,21 +28,13 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
-                        <Border x:Name="bg"
-                Background="{TemplateBinding Background}"
-                BorderBrush="Transparent" BorderThickness="2" CornerRadius="15" Padding="45 20">
-                            <ContentPresenter HorizontalAlignment="Center"
-                            VerticalAlignment="Center" />
+                        <Border x:Name="bg" Background="{TemplateBinding Background}" BorderBrush="Transparent" BorderThickness="2" CornerRadius="15" Padding="45 20">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </Border>
                         <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver"
-                   Value="True">
-                                <Setter Property="Background"
-                    Value="#FF1D224D"
-                    TargetName="bg" />
-                                <Setter Property="BorderBrush"
-Value="WhiteSmoke"
-TargetName="bg" />
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FF1D224D" TargetName="bg" />
+                                <Setter Property="BorderBrush" Value="WhiteSmoke" TargetName="bg" />
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -103,21 +95,13 @@ TargetName="bg" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
-                        <Border x:Name="bg"
-                Background="{TemplateBinding Background}"
-                BorderBrush="Transparent" BorderThickness="2" CornerRadius="15" Padding="5 15">
-                            <ContentPresenter HorizontalAlignment="Center"
-                            VerticalAlignment="Center" />
+                        <Border x:Name="bg" Background="{TemplateBinding Background}" BorderBrush="Transparent" BorderThickness="2" CornerRadius="15" Padding="5 15">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </Border>
                         <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver"
-                   Value="True">
-                                <Setter Property="Background"
-                    Value="darkseagreen"
-                    TargetName="bg" />
-                                <Setter Property="BorderBrush"
-Value="WhiteSmoke"
-TargetName="bg" />
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="darkseagreen" TargetName="bg" />
+                                <Setter Property="BorderBrush" Value="WhiteSmoke" TargetName="bg" />
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -138,21 +122,14 @@ TargetName="bg" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
-                        <Border x:Name="bg"
-                Background="{TemplateBinding Background}"
-                BorderBrush="Transparent" BorderThickness="2" CornerRadius="15">
+                        <Border x:Name="bg" Background="{TemplateBinding Background}" BorderBrush="Transparent" BorderThickness="2" CornerRadius="15">
                             <ContentPresenter HorizontalAlignment="Center"
                             VerticalAlignment="Center" />
                         </Border>
                         <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver"
-                   Value="True">
-                                <Setter Property="Background"
-                    Value="DarkSeaGreen"
-                    TargetName="bg" />
-                                <Setter Property="BorderBrush"
-Value="WhiteSmoke"
-TargetName="bg" />
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="DarkSeaGreen" TargetName="bg" />
+                                <Setter Property="BorderBrush" Value="WhiteSmoke" TargetName="bg" />
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
