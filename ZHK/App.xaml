@@ -46,7 +46,7 @@
         <Style x:Key="PageTitle" TargetType="Label">
             <Setter Property="HorizontalAlignment" Value="Center" />
             <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontSize" Value="24" />
             <Setter Property="FontWeight" Value="Bold" />
         </Style>
 
@@ -58,7 +58,7 @@
             <Setter Property="Height" Value="30" />
             <Setter Property="HorizontalAlignment" Value="Stretch" />
             <Setter Property="Margin" Value="20" />
-            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontSize" Value="16" />
             <Setter Property="FontWeight" Value="Bold" />
         </Style>
         <Style x:Key="ObjectInputs" TargetType="UniformGrid">
@@ -70,6 +70,7 @@
             <Setter Property="Orientation" Value="Horizontal" />
         </Style>
         <Style x:Key="InputBoxLabel" TargetType="Label">
+            <Setter Property="Foreground" Value="White"/>
             <Setter Property="FontWeight" Value="DemiBold" />
             <Setter Property="Margin" Value="0 0 10 0" />
         </Style>
@@ -100,7 +101,7 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="darkseagreen" TargetName="bg" />
+                                <Setter Property="Background" Value="#FF1A623A" TargetName="bg" />
                                 <Setter Property="BorderBrush" Value="WhiteSmoke" TargetName="bg" />
                             </Trigger>
                         </ControlTemplate.Triggers>
@@ -128,7 +129,7 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="DarkSeaGreen" TargetName="bg" />
+                                <Setter Property="Background" Value="#FF1A623A" TargetName="bg" />
                                 <Setter Property="BorderBrush" Value="WhiteSmoke" TargetName="bg" />
                             </Trigger>
                         </ControlTemplate.Triggers>
