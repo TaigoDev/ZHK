@@ -43,60 +43,91 @@ namespace ZHK.Forms
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
-            using (SqlConnection conn = new SqlConnection("Data Source=localhost;Initial Catalog=ЖК_311;Integrated Security=SSPI;"))
+            try
             {
-                conn.Open();
-                using (SqlCommand cmd = new SqlCommand($"DELETE FROM ResidentialComplex WHERE ID = @value1", conn))
+                MessageBoxResult result = MessageBox.Show("Вы уверены, что хотите удалить?", "Удалить", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.Yes)
                 {
-                    cmd.Parameters.AddWithValue("@value1", ((ResidentialComplex)dGridRC.SelectedItem).ID);
-                    cmd.ExecuteNonQuery();
+                    using (SqlConnection conn = new SqlConnection("Data Source=localhost;Initial Catalog=ЖК_311;Integrated Security=SSPI;"))
+                    {
+                        conn.Open();
+                        using (SqlCommand cmd = new SqlCommand($"DELETE FROM ResidentialComplex WHERE ID = @value1", conn))
+                        {
+                            cmd.Parameters.AddWithValue("@value1", ((ResidentialComplex)dGridRC.SelectedItem).ID);
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                    Switcher.MainFrame.Navigate(new ListRC());
                 }
+
             }
-            Switcher.MainFrame.Navigate(new ListRC());
+            catch (Exception ex)
+            {
+                throw new Exception("ERROR");
+            }
+
 
         }
 
         private async void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
-            using (SqlConnection conn = new SqlConnection("Data Source=localhost;Initial Catalog=ЖК_311;Integrated Security=SSPI;"))
+            try
             {
-                conn.Open();
-                if (LogicMethods.CanChangeStatusToPlan((int)((ResidentialComplex)dGridRC.SelectedItem).ID))
-                {
+                Errors.CheckIsEmpty(TxtBoxName, TxtBoxMoney, TxtBoxKDC, TxtBoxCity, ComboBoxStatus);
+                Errors.CheckNotNegative(TxtBoxMoney, TxtBoxKDC);
 
-                    using (SqlCommand cmd = new SqlCommand($"UPDATE ResidentialComplex SET Name = @value1, City = @value2, ComplexValueAdded = @value3, BuildingCost = @value4, Status = @value5 WHERE ID = @value6", conn))
+                using (SqlConnection conn = new SqlConnection("Data Source=localhost;Initial Catalog=ЖК_311;Integrated Security=SSPI;"))
+                {
+                    conn.Open();
+                    if (LogicMethods.CanChangeStatusToPlan((int)((ResidentialComplex)dGridRC.SelectedItem).ID))
+                    {
+
+                        using (SqlCommand cmd = new SqlCommand($"UPDATE ResidentialComplex SET Name = @value1, City = @value2, ComplexValueAdded = @value3, BuildingCost = @value4, Status = @value5 WHERE ID = @value6", conn))
+                        {
+                            cmd.Parameters.AddWithValue("@value1", TxtBoxName.Text);
+                            cmd.Parameters.AddWithValue("@value2", TxtBoxCity.Text);
+                            cmd.Parameters.AddWithValue("@value3", TxtBoxKDC.Text);
+                            cmd.Parameters.AddWithValue("@value4", TxtBoxMoney.Text);
+                            cmd.Parameters.AddWithValue("@value5", ComboBoxStatus.SelectedItem.ToString());
+                            cmd.Parameters.AddWithValue("@value6", ((ResidentialComplex)dGridRC.SelectedItem).ID);
+                            await cmd.ExecuteNonQueryAsync();
+                            Switcher.MainFrame.Navigate(new ListRC());
+                        }
+                    }
+                }
+            }
+            catch 
+            {
+            }
+
+        }
+
+        private void BtnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Errors.CheckIsEmpty(TxtBoxName, TxtBoxMoney, TxtBoxKDC, TxtBoxCity, ComboBoxStatus);
+                Errors.CheckNotNegative(TxtBoxMoney, TxtBoxKDC);
+
+                using (SqlConnection conn = new SqlConnection("Data Source=localhost;Initial Catalog=ЖК_311;Integrated Security=SSPI;"))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand($"INSERT INTO ResidentialComplex (Name, City, ComplexValueAdded, BuildingCost, Status) VALUES (@value1, @value2, @value3, @value4, @value5)", conn))
                     {
                         cmd.Parameters.AddWithValue("@value1", TxtBoxName.Text);
                         cmd.Parameters.AddWithValue("@value2", TxtBoxCity.Text);
                         cmd.Parameters.AddWithValue("@value3", TxtBoxKDC.Text);
                         cmd.Parameters.AddWithValue("@value4", TxtBoxMoney.Text);
                         cmd.Parameters.AddWithValue("@value5", ComboBoxStatus.SelectedItem.ToString());
-                        cmd.Parameters.AddWithValue("@value6", ((ResidentialComplex)dGridRC.SelectedItem).ID);
-                        await cmd.ExecuteNonQueryAsync();
-                        Switcher.MainFrame.Navigate(new ListRC());
+                        cmd.ExecuteNonQuery();
                     }
                 }
-                else
-                    MessageBox.Show("error");
+                Switcher.MainFrame.Navigate(new ListRC());
             }
-        }
-
-        private void BtnAdd_Click(object sender, RoutedEventArgs e)
-        {
-            using (SqlConnection conn = new SqlConnection("Data Source=localhost;Initial Catalog=ЖК_311;Integrated Security=SSPI;"))
+            catch
             {
-                conn.Open();
-                using (SqlCommand cmd = new SqlCommand($"INSERT INTO ResidentialComplex (Name, City, ComplexValueAdded, BuildingCost, Status) VALUES (@value1, @value2, @value3, @value4, @value5)", conn))
-                {
-                    cmd.Parameters.AddWithValue("@value1", TxtBoxName.Text);
-                    cmd.Parameters.AddWithValue("@value2", TxtBoxCity.Text);
-                    cmd.Parameters.AddWithValue("@value3", TxtBoxKDC.Text);
-                    cmd.Parameters.AddWithValue("@value4", TxtBoxMoney.Text);
-                    cmd.Parameters.AddWithValue("@value5", ComboBoxStatus.SelectedItem.ToString());
-                    cmd.ExecuteNonQuery();
-                }
+
             }
-            Switcher.MainFrame.Navigate(new ListRC());
         }
     }
 }

@@ -68,6 +68,7 @@
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Classes\DGridHouse.cs" />
+    <Compile Include="Classes\Errors.cs" />
     <Compile Include="Classes\LogicMethods.cs" />
     <Compile Include="Classes\Switcher.cs" />
     <Compile Include="DBModel.cs">

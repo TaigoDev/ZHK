@@ -47,35 +47,48 @@ namespace ZHK.Forms
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-            using (SqlConnection conn = new SqlConnection("Data Source=localhost;Initial Catalog=ЖК_311;Integrated Security=SSPI;"))
+            try
             {
-                conn.Open();
-                using (SqlCommand cmd = new SqlCommand($"INSERT INTO House (ResidentialComplexID, Street, Number, BuildingCost, HouseValueAdded, IsDeleted) VALUES (@value1, @value2, @value3, @value4, @value5, @valueX)", conn))
+                Errors.CheckIsEmpty(TxtBoxAdress, TxtBoxMoney, TxtBoxNumber, TxtBoxKDC, ComboBoxRC);
+                Errors.CheckNotNegative(TxtBoxMoney, TxtBoxKDC);
+                Errors.IsNatural(TxtBoxNumber);
+
+                using (SqlConnection conn = new SqlConnection("Data Source=localhost;Initial Catalog=ЖК_311;Integrated Security=SSPI;"))
                 {
-                    cmd.Parameters.AddWithValue("@value1", ComboBoxRC.SelectedItem.ToString());
-                    cmd.Parameters.AddWithValue("@value2", TxtBoxAdress.Text);
-                    cmd.Parameters.AddWithValue("@value3", TxtBoxNumber.Text);
-                    cmd.Parameters.AddWithValue("@value4", TxtBoxMoney.Text);
-                    cmd.Parameters.AddWithValue("@value5", TxtBoxKDC.Text);
-                    cmd.Parameters.AddWithValue("@valueX", "0");
-                    cmd.ExecuteNonQuery();
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand($"INSERT INTO House (ResidentialComplexID, Street, Number, BuildingCost, HouseValueAdded, IsDeleted) VALUES (@value1, @value2, @value3, @value4, @value5, @valueX)", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@value1", ComboBoxRC.SelectedItem.ToString());
+                        cmd.Parameters.AddWithValue("@value2", TxtBoxAdress.Text);
+                        cmd.Parameters.AddWithValue("@value3", TxtBoxNumber.Text);
+                        cmd.Parameters.AddWithValue("@value4", TxtBoxMoney.Text);
+                        cmd.Parameters.AddWithValue("@value5", TxtBoxKDC.Text);
+                        cmd.Parameters.AddWithValue("@valueX", "0");
+                        cmd.ExecuteNonQuery();
+                    }
+                    var db = new ЖК_311Entities();
+                    db.Apartaments.Add(new Apartament(db.Apartaments.Max(x => x.ID), db.Houses.Max(x => x.ID), 0, 50, 1, 1, 1, false, 50000, 10, 0));
+                    db.SaveChanges();
                 }
-                var db = new ЖК_311Entities();
-                db.Apartaments.Add(new Apartament(db.Apartaments.Max(x => x.ID), db.Houses.Max(x => x.ID), 0, 50, 1, 1, 1, false, 50000, 10, 0));
-                db.SaveChanges();
+                Switcher.MainFrame.Navigate(new ListHouses());
             }
-
-            Switcher.MainFrame.Navigate(new ListHouses());
-
+            catch
+            {
+            }
         }
 
 
         private async void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
-            using (SqlConnection conn = new SqlConnection("Data Source=localhost;Initial Catalog=ЖК_311;Integrated Security=SSPI;"))
+            try
             {
-                conn.Open();
+                Errors.CheckIsEmpty(TxtBoxAdress, TxtBoxMoney, TxtBoxNumber, TxtBoxKDC, ComboBoxRC);
+                Errors.CheckNotNegative(TxtBoxMoney, TxtBoxKDC);
+                Errors.IsNatural(TxtBoxNumber);
 
+                using (SqlConnection conn = new SqlConnection("Data Source=localhost;Initial Catalog=ЖК_311;Integrated Security=SSPI;"))
+                {
+                    conn.Open();
 
                     using (SqlCommand cmd = new SqlCommand($"UPDATE House SET ResidentialComplexID = @value1, Street = @value2, Number = @value3, BuildingCost = @value4, HouseValueAdded = @value5 WHERE ID = @value6", conn))
                     {
@@ -88,14 +101,17 @@ namespace ZHK.Forms
                         await cmd.ExecuteNonQueryAsync();
                         Switcher.MainFrame.Navigate(new ListHouses());
                     }
-                
+                }
+            }
+            catch
+            {
             }
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
-            try 
-            { 
+            try
+            {
                 using (SqlConnection conn = new SqlConnection("Data Source=localhost;Initial Catalog=ЖК_311;Integrated Security=SSPI;"))
                 {
                     conn.Open();
@@ -107,7 +123,7 @@ namespace ZHK.Forms
                 }
                 Switcher.MainFrame.Navigate(new ListHouses());
             }
-            catch (Exception ex)
+            catch
             {
                 MessageBox.Show("Нет такой квартиры");
             }
