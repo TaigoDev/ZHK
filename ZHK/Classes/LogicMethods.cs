@@ -75,9 +75,9 @@ namespace ZHK.Classes
                              join a in ЖК_311Entities.GetContext().Apartaments on h.ID equals a.HouseID into ap
                              from a in ap.DefaultIfEmpty().ToList()
                              where a != null
-                             select new HelpApartment(a.ID, a.HouseID, a.Number, a.Area, a.CountOfRooms, a.Section, a.Floor, a.IsSold, a.BuildingCost, a.ApartmentValueAdded, a.IsDeleted, c.ID)).ToList();
+                             select new HelpApartment(a.ID, a.HouseID, a.Number, Math.Round(a.Area, 1), a.CountOfRooms, a.Section, a.Floor, (bool)a.IsSold ? "продана" : "продается" , a.BuildingCost, a.ApartmentValueAdded, a.IsDeleted, c.ID)).ToList();
             return apartInfo;
-    }
+        }
 
         public static List<House> GetHousesByComplexId(int complexID)
         {
