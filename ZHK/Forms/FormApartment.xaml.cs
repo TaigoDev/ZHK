@@ -50,16 +50,20 @@ namespace ZHK.Forms
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection("Data Source=localhost;Initial Catalog=ЖК_311;Integrated Security=SSPI;"))
+                MessageBoxResult result = MessageBox.Show("Вы уверены, что хотите удалить?", "Удалить", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.Yes)
                 {
-                    conn.Open();
-                    using (SqlCommand cmd = new SqlCommand($"UPDATE Apartaments SET IsSold = 'TRUE' WHERE ID = @value1 ", conn))
+                    using (SqlConnection conn = new SqlConnection("Data Source=localhost;Initial Catalog=ЖК_311;Integrated Security=SSPI;"))
                     {
-                        cmd.Parameters.AddWithValue("@value1", ((HelpApartment)dGridAP.SelectedItem).ID);
-                        cmd.ExecuteNonQuery();
+                        conn.Open();
+                        using (SqlCommand cmd = new SqlCommand($"UPDATE Apartaments SET IsSold = 'TRUE' WHERE ID = @value1 ", conn))
+                        {
+                            cmd.Parameters.AddWithValue("@value1", ((HelpApartment)dGridAP.SelectedItem).ID);
+                            cmd.ExecuteNonQuery();
+                        }
                     }
+                    Switcher.MainFrame.Navigate(new ListApartments());
                 }
-                Switcher.MainFrame.Navigate(new ListApartments());
             }
             catch (Exception ex)
             {
@@ -126,7 +130,7 @@ namespace ZHK.Forms
 
                         cmd.ExecuteNonQuery();
                     }
-                    
+
                 }
                 Switcher.MainFrame.Navigate(new ListApartments());
             }

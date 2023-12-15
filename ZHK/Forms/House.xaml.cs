@@ -107,23 +107,27 @@ namespace ZHK.Forms
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection("Data Source=localhost;Initial Catalog=ЖК_311;Integrated Security=SSPI;"))
+                MessageBoxResult result = MessageBox.Show("Вы уверены, что хотите удалить?", "Удалить", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.Yes)
                 {
-                    conn.Open();
-                    using (SqlCommand cmd = new SqlCommand($"DELETE FROM Apartaments WHERE HouseID = @value1", conn))
+                    using (SqlConnection conn = new SqlConnection("Data Source=localhost;Initial Catalog=ЖК_311;Integrated Security=SSPI;"))
                     {
-                        cmd.Parameters.AddWithValue("@value1", ((DGridHouse)dGridHS.SelectedItem).IDHouse);
-                        cmd.ExecuteNonQuery();
+                        conn.Open();
+                        using (SqlCommand cmd = new SqlCommand($"DELETE FROM Apartaments WHERE HouseID = @value1", conn))
+                        {
+                            cmd.Parameters.AddWithValue("@value1", ((DGridHouse)dGridHS.SelectedItem).IDHouse);
+                            cmd.ExecuteNonQuery();
+                        }
+                        using (SqlCommand cmd = new SqlCommand($"DELETE FROM House WHERE ID = @value1", conn))
+                        {
+                            cmd.Parameters.AddWithValue("@value1", ((DGridHouse)dGridHS.SelectedItem).IDHouse);
+                            cmd.ExecuteNonQuery();
+                        }
                     }
-                    using (SqlCommand cmd = new SqlCommand($"DELETE FROM House WHERE ID = @value1", conn))
-                    {
-                        cmd.Parameters.AddWithValue("@value1", ((DGridHouse)dGridHS.SelectedItem).IDHouse);
-                        cmd.ExecuteNonQuery();
-                    }
+                    Switcher.MainFrame.Navigate(new ListHouses());
                 }
-                Switcher.MainFrame.Navigate(new ListHouses());
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Нет такой квартиры");
             }
