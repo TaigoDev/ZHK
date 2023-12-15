@@ -69,6 +69,7 @@
     </Compile>
     <Compile Include="Classes\DGridHouse.cs" />
     <Compile Include="Classes\Errors.cs" />
+    <Compile Include="Classes\HelpApartment.cs" />
     <Compile Include="Classes\LogicMethods.cs" />
     <Compile Include="Classes\Switcher.cs" />
     <Compile Include="DBModel.cs">
@@ -76,8 +77,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Apartment.xaml.cs">
-      <DependentUpon>Apartment.xaml</DependentUpon>
+    <Compile Include="Forms\FormApartment.xaml.cs">
+      <DependentUpon>FormApartment.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\House.xaml.cs">
       <DependentUpon>House.xaml</DependentUpon>
@@ -94,7 +95,7 @@
     <Compile Include="sysdiagram.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <Page Include="Forms\Apartment.xaml">
+    <Page Include="Forms\FormApartment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

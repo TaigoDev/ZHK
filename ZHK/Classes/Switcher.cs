@@ -11,5 +11,6 @@ namespace ZHK.Classes
     {
         public static Frame MainFrame;
         public static DataGrid DGridHS;
+        public static DataGrid DGridAP;
     }
 }

@@ -5,6 +5,7 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Runtime.Remoting.Contexts;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
@@ -60,11 +61,23 @@ namespace ZHK.Classes
                              join c in ЖК_311Entities.GetContext().ResidentialComplexes on h.ResidentialComplexID equals c.ID
                              join a in ЖК_311Entities.GetContext().Apartaments on h.ID equals a.HouseID into ap
                              from a in ap.DefaultIfEmpty().ToList()
-                             where a != null 
-                             group new {h,c,a} by new {a.HouseID, h.ID, h.Street, h.Number, c.Status} into g
-                             select new DGridHouse (g.Key.HouseID, g.Key.ID, g.Key.Street, g.Key.Number, g.Key.Status, g.Count(x=>x.a.IsSold == true), g.Count(x=>x.a.IsSold != true))).ToList();
+                             where a != null
+                             group new { h, c, a } by new { a.HouseID, h.ID, h.Street, h.Number, c.Status } into g
+                             select new DGridHouse(g.Key.HouseID, g.Key.ID, g.Key.Street, g.Key.Number, g.Key.Status, g.Count(x => x.a.IsSold == true), g.Count(x => x.a.IsSold != true))).ToList();
             return houseInfo;
         }
+
+        public static List<HelpApartment> GetApartmentInfo()
+        {
+            var a1 = ЖК_311Entities.GetContext().Apartaments.ToList();
+            var apartInfo = (from h in ЖК_311Entities.GetContext().Houses.ToList()
+                             join c in ЖК_311Entities.GetContext().ResidentialComplexes on h.ResidentialComplexID equals c.ID
+                             join a in ЖК_311Entities.GetContext().Apartaments on h.ID equals a.HouseID into ap
+                             from a in ap.DefaultIfEmpty().ToList()
+                             where a != null
+                             select new HelpApartment(a.ID, a.HouseID, a.Number, a.Area, a.CountOfRooms, a.Section, a.Floor, a.IsSold, a.BuildingCost, a.ApartmentValueAdded, a.IsDeleted, c.ID)).ToList();
+            return apartInfo;
+    }
 
         public static List<House> GetHousesByComplexId(int complexID)
         {

@@ -18,10 +18,13 @@ namespace ZHK.Forms
     /// <summary>
     /// Логика взаимодействия для Apartment.xaml
     /// </summary>
-    public partial class Apartment : Page
+    public partial class FormApartment : Page
     {
-        public Apartment()
+        DataGrid dGridAP;
+        public FormApartment(DataGrid dGridAp)
         {
+            dGridAP = dGridAp;
+
             InitializeComponent();
         }
 

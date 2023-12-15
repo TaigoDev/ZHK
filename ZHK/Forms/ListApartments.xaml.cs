@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ZHK.Classes;
 
 namespace ZHK.Forms
 {
@@ -20,11 +21,12 @@ namespace ZHK.Forms
         public ListApartments()
         {
             InitializeComponent();
+            DGridAP.ItemsSource = LogicMethods.GetApartmentInfo();
         }
 
         private void BtnEditData_Click(object sender, RoutedEventArgs e)
         {
-
+            Switcher.MainFrame.Navigate(new FormApartment(DGridAP));
         }
     }
 }

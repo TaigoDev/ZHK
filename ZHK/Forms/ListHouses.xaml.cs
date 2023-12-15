@@ -23,9 +23,9 @@ namespace ZHK.Forms
         {
 
             InitializeComponent();
-            var db = new ЖК_311Entities();
-            var items = db.Houses.ToList();
-            DGridHS.ItemsSource = items;
+            //var db = new ЖК_311Entities();
+            //var items = db.Houses.ToList();
+            //DGridHS.ItemsSource = items;
             DGridHS.ItemsSource = LogicMethods.GetHouseInfo();
             LogicMethods.GetUniqueValues("House", "Street", AddressFilter);
             LogicMethods.GetUniqueValues("House", "ResidentialComplexID", RCFilter);

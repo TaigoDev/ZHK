@@ -27,12 +27,13 @@
         </UniformGrid>
         <DataGrid Grid.Row="2" x:Name="DGridAP">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Name}" Header="Название"></DataGridTextColumn>
-                <DataGridTextColumn Binding="{Binding Status}" Header="Статус"></DataGridTextColumn>
-                <DataGridTextColumn Binding="{Binding Houses.Count}" Header="Дома"></DataGridTextColumn>
-                <DataGridTextColumn Binding="{Binding City}" Header="Города"></DataGridTextColumn>
-                <DataGridTextColumn Binding="{Binding ComplexValueAdded}" Header="КДС"></DataGridTextColumn>
-                <DataGridTextColumn Binding="{Binding BuildingCost}" Header="Затраты"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding RCID}" Header="ЖК"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Number}" Header="Адрес"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Area}" Header="Площади"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding CountOfRooms}" Header="Комнат"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Section}" Header="Секция"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Floor}" Header="Этаж"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding IsSold}" Header="Статус"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
 
