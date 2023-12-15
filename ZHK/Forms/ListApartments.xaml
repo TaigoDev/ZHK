@@ -22,8 +22,8 @@
             Список квартир
         </Label>
         <UniformGrid Style="{StaticResource Filters}" Grid.Row="1">
-            <ComboBox Style="{StaticResource Filter}" x:Name="StatusFilter"/>
-            <ComboBox Style="{StaticResource Filter}" x:Name="CityFilter"/>
+            <ComboBox Style="{StaticResource Filter}" SelectionChanged="HouseFilter_SelectionChanged" x:Name="HouseFilter"/>
+            <ComboBox Style="{StaticResource Filter}" SelectionChanged="RCFilter_SelectionChanged" x:Name="RCFilter"/>
         </UniformGrid>
         <DataGrid Grid.Row="2" x:Name="DGridAP">
             <DataGrid.Columns>

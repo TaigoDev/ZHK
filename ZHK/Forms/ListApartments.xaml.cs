@@ -22,11 +22,24 @@ namespace ZHK.Forms
         {
             InitializeComponent();
             DGridAP.ItemsSource = LogicMethods.GetApartmentInfo();
+            LogicMethods.GetUniqueValues("Apartaments", "HouseID", HouseFilter);
+            LogicMethods.GetUniqueValues("ResidentialComplex", "ID", RCFilter);
         }
 
         private void BtnEditData_Click(object sender, RoutedEventArgs e)
         {
             Switcher.MainFrame.Navigate(new FormApartment(DGridAP));
+        }
+
+        private void HouseFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            LogicMethods.FilterHouseInApartments(DGridAP, HouseFilter);
+        }
+
+        private void RCFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            LogicMethods.FilterRCInApartments(DGridAP, RCFilter);
+
         }
     }
 }

@@ -122,5 +122,19 @@ namespace ZHK.Classes
                                   where hs.ResidentialComplexID.ToString() == filter.SelectedItem.ToString()
                                   select hs;
         }
+
+        public static void FilterRCInApartments(DataGrid dGripRC, ComboBox filter)
+        {
+            dGripRC.ItemsSource = from hs in ЖК_311Entities.GetContext().Apartaments.ToList()
+                                  where hs.HouseID.ToString() == filter.SelectedItem.ToString()
+                                  select hs;
+        }
+
+        public static void FilterHouseInApartments(DataGrid dGripRC, ComboBox filter)
+        {
+            dGripRC.ItemsSource = from hs in ЖК_311Entities.GetContext().Apartaments.ToList()
+                                  where hs.HouseID.ToString() == filter.SelectedItem.ToString()
+                                  select hs;
+        }
     }
 }
