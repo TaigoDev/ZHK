@@ -45,13 +45,5 @@ namespace ZHK.Forms
 
         }
 
-        private void DGridAP_LoadingRow(object sender, DataGridRowEventArgs e)
-        {
-            e.Row.Header = (e.Row.GetIndex() + 1).ToString();
-            if (e.Row.GetIndex() > _showRows - 1)
-            {
-                e.Row.Visibility = Visibility.Hidden;
-            }
-        }
     }
 }

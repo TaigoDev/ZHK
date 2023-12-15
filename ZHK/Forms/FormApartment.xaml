@@ -20,8 +20,32 @@
         <Label Grid.Row="0" Style="{StaticResource PageTitle}">Квартира</Label>
         <UniformGrid Style="{StaticResource ObjectInputs}" Grid.Row="1">
             <WrapPanel Style="{StaticResource InputBox}">
-                <Label Style="{StaticResource InputBoxLabel}">Название</Label>
-                <TextBox x:Name="TxtBoxName" Style="{StaticResource Input}"></TextBox>
+                <Label Style="{StaticResource InputBoxLabel}">Дом</Label>
+                <ComboBox x:Name="ComboboxHouse" Style="{StaticResource InputComboBox}"></ComboBox>
+            </WrapPanel>
+            <WrapPanel Style="{StaticResource InputBox}">
+                <Label Style="{StaticResource InputBoxLabel}">Номер</Label>
+                <TextBox x:Name="TxtBoxNumber" Style="{StaticResource RoundedTextBox}"></TextBox>
+            </WrapPanel>
+            <WrapPanel Style="{StaticResource InputBox}">
+                <Label Style="{StaticResource InputBoxLabel}">Площадь</Label>
+                <TextBox x:Name="TxtBoxArea" Style="{StaticResource Input}"></TextBox>
+            </WrapPanel>
+            <WrapPanel Style="{StaticResource InputBox}">
+                <Label Style="{StaticResource InputBoxLabel}">Комнаты</Label>
+                <TextBox x:Name="TxtBoxRooms" Style="{StaticResource Input}"></TextBox>
+            </WrapPanel>
+            <WrapPanel Style="{StaticResource InputBox}">
+                <Label Style="{StaticResource InputBoxLabel}">Секция</Label>
+                <TextBox x:Name="TxtBoxSection" Style="{StaticResource Input}"></TextBox>
+            </WrapPanel>
+            <WrapPanel Style="{StaticResource InputBox}">
+                <Label Style="{StaticResource InputBoxLabel}">Этаж</Label>
+                <TextBox x:Name="TxtBoxFloor" Style="{StaticResource Input}"></TextBox>
+            </WrapPanel>
+            <WrapPanel Style="{StaticResource InputBox}">
+                <Label Style="{StaticResource InputBoxLabel}">Статус</Label>
+                <ComboBox x:Name="ComboboxStatus" Style="{StaticResource InputComboBox}"></ComboBox>
             </WrapPanel>
             <WrapPanel Style="{StaticResource InputBox}">
                 <Label Style="{StaticResource InputBoxLabel}">КДС</Label>
@@ -31,15 +55,6 @@
                 <Label Style="{StaticResource InputBoxLabel}">Затраты</Label>
                 <TextBox x:Name="TxtBoxMoney" Style="{StaticResource Input}"></TextBox>
             </WrapPanel>
-            <WrapPanel Style="{StaticResource InputBox}">
-                <Label Style="{StaticResource InputBoxLabel}">Город</Label>
-                <TextBox x:Name="TxtBoxCity" Style="{StaticResource Input}"></TextBox>
-            </WrapPanel>
-            <WrapPanel Style="{StaticResource InputBox}">
-                <Label Style="{StaticResource InputBoxLabel}">Статус</Label>
-                <ComboBox x:Name="ComboBoxStatus" Style="{StaticResource InputComboBox}"></ComboBox>
-            </WrapPanel>
-            <TextBlock x:Name="test"></TextBlock>
         </UniformGrid>
         <UniformGrid Grid.Row="2" VerticalAlignment="Bottom" Columns="3">
             <Button x:Name="BtnAdd" Click="BtnAdd_Click" Style="{StaticResource EditObjectButton}">Добавить</Button>
