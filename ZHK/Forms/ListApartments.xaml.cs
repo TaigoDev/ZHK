@@ -24,6 +24,7 @@ namespace ZHK.Forms
             DGridAP.ItemsSource = LogicMethods.GetApartmentInfo();
             LogicMethods.GetUniqueValues("Apartaments", "HouseID", HouseFilter);
             LogicMethods.GetUniqueValues("ResidentialComplex", "ID", RCFilter);
+            
         }
 
         private void BtnEditData_Click(object sender, RoutedEventArgs e)
