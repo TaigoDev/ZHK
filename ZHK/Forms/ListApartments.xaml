@@ -10,7 +10,7 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="90"/>
             <RowDefinition/>
             <RowDefinition Height="80"/>
@@ -22,8 +22,14 @@
             Список квартир
         </Label>
         <UniformGrid Style="{StaticResource Filters}" Grid.Row="1">
-            <ComboBox Style="{StaticResource Filter}" SelectionChanged="HouseFilter_SelectionChanged" x:Name="HouseFilter"/>
-            <ComboBox Style="{StaticResource Filter}" SelectionChanged="RCFilter_SelectionChanged" x:Name="RCFilter"/>
+            <WrapPanel Style="{StaticResource FilterContainer}">
+                <Label Style="{StaticResource FilterContainerLabel}">Выберите дом</Label>
+                <ComboBox Style="{StaticResource Filter}" SelectionChanged="HouseFilter_SelectionChanged" x:Name="HouseFilter"/>
+            </WrapPanel>
+            <WrapPanel Style="{StaticResource FilterContainer}">
+                <Label Style="{StaticResource FilterContainerLabel}">Выберите ЖК</Label>
+                <ComboBox Style="{StaticResource Filter}" SelectionChanged="RCFilter_SelectionChanged" x:Name="RCFilter"/>
+            </WrapPanel>
         </UniformGrid>
         <DataGrid Grid.Row="2" x:Name="DGridAP">
             <DataGrid.Columns>

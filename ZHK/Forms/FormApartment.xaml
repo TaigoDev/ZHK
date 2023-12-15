@@ -10,7 +10,7 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="60"></RowDefinition>
         </Grid.RowDefinitions>
@@ -25,7 +25,7 @@
             </WrapPanel>
             <WrapPanel Style="{StaticResource InputBox}">
                 <Label Style="{StaticResource InputBoxLabel}">Номер</Label>
-                <TextBox x:Name="TxtBoxNumber" Style="{StaticResource RoundedTextBox}"></TextBox>
+                <TextBox x:Name="TxtBoxNumber" Style="{StaticResource Input}"></TextBox>
             </WrapPanel>
             <WrapPanel Style="{StaticResource InputBox}">
                 <Label Style="{StaticResource InputBoxLabel}">Площадь</Label>

@@ -9,7 +9,7 @@
       Title="Hello">
     <Grid VerticalAlignment="Center">
         <StackPanel HorizontalAlignment="Center">
-            <TextBlock Foreground="white" HorizontalAlignment="Center" Margin="0 0 0 20" FontSize="30" FontWeight="Bold">Здравствуйте!</TextBlock>
+            <TextBlock Foreground="white" HorizontalAlignment="Center" Margin="0 0 0 10" FontSize="40" FontWeight="Bold">Здравствуйте!</TextBlock>
             <TextBlock Foreground="white" HorizontalAlignment="Center" FontSize="20">Чтобы перейти к просмотру сущностей, нажмите на одну из кнопок вверху :3</TextBlock>
         </StackPanel>
     </Grid>
