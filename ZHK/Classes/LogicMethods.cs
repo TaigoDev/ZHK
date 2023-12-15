@@ -53,8 +53,6 @@ namespace ZHK.Classes
             }
         }
 
-
-
         public static List<DGridHouse> GetHouseInfo()
         {
             var a1 = ЖК_311Entities.GetContext().Apartaments.ToList();

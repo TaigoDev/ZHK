@@ -17,10 +17,8 @@ using ZHK.Classes;
 
 namespace ZHK
 {
-
     public partial class MainWindow : Window
     {
-        
         public MainWindow()
         {
             InitializeComponent();
@@ -45,7 +43,6 @@ namespace ZHK
 
         private void MainFrame_Navigated(object sender, NavigationEventArgs e)
         {
-            //Switcher.DGridHS.ItemsSource = ЖК_311Entities.GetContext().Houses.ToList();
         }
     }
 }

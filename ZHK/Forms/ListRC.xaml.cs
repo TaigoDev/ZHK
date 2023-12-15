@@ -18,9 +18,6 @@ using ZHK.Classes;
 
 namespace ZHK.Forms
 {
-    /// <summary>
-    /// Логика взаимодействия для ListRC.xaml
-    /// </summary>
     public partial class ListRC : Page
     {
         public ListRC()

@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace ZHK.Forms
 {
-    /// <summary>
-    /// Логика взаимодействия для ListApartments.xaml
-    /// </summary>
     public partial class ListApartments : Page
     {
         public ListApartments()

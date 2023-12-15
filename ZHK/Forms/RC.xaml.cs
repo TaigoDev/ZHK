@@ -61,7 +61,7 @@ namespace ZHK.Forms
                 }
 
             }
-            catch (Exception ex)
+            catch 
             {
                 throw new Exception("ERROR");
             }

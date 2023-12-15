@@ -17,19 +17,8 @@ using ZHK.Classes;
 
 namespace ZHK.Forms
 {
-    /// <summary>
-    /// Логика взаимодействия для ListHouses.xaml
-    /// </summary>
     public partial class ListHouses : Page
     {
-        //ЖК - House
-        //улица - House
-        //номер дома - House
-        //статус строительства ЖК, в к-ом дом - ResidentialComplex
-        //количество проданных квартир - Apartments (но нужно брать именно в этом доме)
-        //количество продающихся квартир - Apartments (!IsSold)
-
-        //SoldingApart|SoldApart|StatusRC
         public ListHouses()
         {
 

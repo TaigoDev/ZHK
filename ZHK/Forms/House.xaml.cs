@@ -17,16 +17,13 @@ using ZHK.Classes;
 
 namespace ZHK.Forms
 {
-    /// <summary>
-    /// Логика взаимодействия для House.xaml
-    /// </summary>
+
     public partial class HouseForm : Page
     {
         DataGrid dGridHS;
 
         public HouseForm(DataGrid dGridHs)
         {
-            //Switcher.DGridHS = dGridHs;
             dGridHS = dGridHs;
 
             InitializeComponent();
