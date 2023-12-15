@@ -71,6 +71,10 @@ namespace ZHK.Forms
         {
             try
             {
+                Errors.CheckIsEmpty(TxtBoxNumber, ComboboxHouse, TxtBoxArea, TxtBoxFloor, TxtBoxKDC, TxtBoxSection, TxtBoxRooms, ComboboxStatus, TxtBoxMoney);
+                Errors.CheckNotNegative(TxtBoxMoney, TxtBoxKDC, TxtBoxArea);
+                Errors.IsNatural(TxtBoxFloor, TxtBoxSection, TxtBoxNumber, TxtBoxRooms);
+
                 using (SqlConnection conn = new SqlConnection("Data Source=localhost;Initial Catalog=ЖК_311;Integrated Security=SSPI;"))
                 {
                     conn.Open();
@@ -101,6 +105,9 @@ namespace ZHK.Forms
         {
             try
             {
+                Errors.CheckIsEmpty(TxtBoxNumber, ComboboxHouse, TxtBoxArea, TxtBoxFloor, TxtBoxKDC, TxtBoxSection, TxtBoxRooms, ComboboxStatus, TxtBoxMoney);
+                Errors.CheckNotNegative(TxtBoxMoney, TxtBoxKDC, TxtBoxArea);
+                Errors.IsNatural(TxtBoxFloor, TxtBoxSection, TxtBoxNumber, TxtBoxRooms);
 
                 using (SqlConnection conn = new SqlConnection("Data Source=localhost;Initial Catalog=ЖК_311;Integrated Security=SSPI;"))
                 {
