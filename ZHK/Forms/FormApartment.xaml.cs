@@ -53,7 +53,7 @@ namespace ZHK.Forms
                 using (SqlConnection conn = new SqlConnection("Data Source=localhost;Initial Catalog=ЖК_311;Integrated Security=SSPI;"))
                 {
                     conn.Open();
-                    using (SqlCommand cmd = new SqlCommand($"UPDATE Apartaments SET IsSold = TRUE WHERE ID = @value1 ", conn))
+                    using (SqlCommand cmd = new SqlCommand($"UPDATE Apartaments SET IsSold = 'TRUE' WHERE ID = @value1 ", conn))
                     {
                         cmd.Parameters.AddWithValue("@value1", ((HelpApartment)dGridAP.SelectedItem).ID);
                         cmd.ExecuteNonQuery();
@@ -61,9 +61,9 @@ namespace ZHK.Forms
                 }
                 Switcher.MainFrame.Navigate(new ListApartments());
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Нет такой квартиры");
+                MessageBox.Show($"Нет такой квартиры {ex}");
             }
         }
 

@@ -110,6 +110,11 @@ namespace ZHK.Forms
                 using (SqlConnection conn = new SqlConnection("Data Source=localhost;Initial Catalog=ЖК_311;Integrated Security=SSPI;"))
                 {
                     conn.Open();
+                    using (SqlCommand cmd = new SqlCommand($"DELETE FROM Apartaments WHERE HouseID = @value1", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@value1", ((DGridHouse)dGridHS.SelectedItem).IDHouse);
+                        cmd.ExecuteNonQuery();
+                    }
                     using (SqlCommand cmd = new SqlCommand($"DELETE FROM House WHERE ID = @value1", conn))
                     {
                         cmd.Parameters.AddWithValue("@value1", ((DGridHouse)dGridHS.SelectedItem).IDHouse);
@@ -118,7 +123,7 @@ namespace ZHK.Forms
                 }
                 Switcher.MainFrame.Navigate(new ListHouses());
             }
-            catch
+            catch(Exception ex)
             {
                 MessageBox.Show("Нет такой квартиры");
             }

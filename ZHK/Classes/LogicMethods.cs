@@ -74,7 +74,7 @@ namespace ZHK.Classes
                              join c in ЖК_311Entities.GetContext().ResidentialComplexes on h.ResidentialComplexID equals c.ID
                              join a in ЖК_311Entities.GetContext().Apartaments on h.ID equals a.HouseID into ap
                              from a in ap.DefaultIfEmpty().ToList()
-                             where a != null
+                             where a != null && a.IsSold == false
                              select new HelpApartment(a.ID, a.HouseID, a.Number, Math.Round(a.Area, 1), a.CountOfRooms, a.Section, a.Floor, (bool)a.IsSold ? "продана" : "продается" , a.BuildingCost, a.ApartmentValueAdded, a.IsDeleted, c.ID)).ToList();
             return apartInfo;
         }
@@ -112,29 +112,47 @@ namespace ZHK.Classes
         public static void FilterAddress(DataGrid dGripRC, ComboBox filter)
         {
             var db = new ЖК_311Entities();
-            dGripRC.ItemsSource = from hs in db.Houses.ToList()
-                                  where hs.Street == filter.SelectedItem.ToString()
-                                  select hs;
+            var content = new List<DGridHouse>();
+            foreach(var house in db.Houses.Where(e => e.Street == filter.SelectedItem.ToString()))
+            {
+                var appartaments = db.Apartaments.Where(a => a.HouseID == house.ID);
+                content.Add(new DGridHouse(house.ID, house.ResidentialComplexID, house.Street, house.Number, house.ResidentialComplex.Status
+                    , appartaments.Count(x => x.IsSold == true), appartaments.Count(x => x.IsSold != true)));
+            }
+            dGripRC.ItemsSource = content;
         }
         public static void FilterRC(DataGrid dGripRC, ComboBox filter)
         {
-            dGripRC.ItemsSource = from hs in ЖК_311Entities.GetContext().Houses.ToList()
-                                  where hs.ResidentialComplexID.ToString() == filter.SelectedItem.ToString()
-                                  select hs;
+            var db = new ЖК_311Entities();
+            var content = new List<DGridHouse>();
+            foreach (var house in db.Houses.Where(e => e.ResidentialComplexID.ToString() == filter.SelectedItem.ToString()))
+            {
+                var appartaments = db.Apartaments.Where(a => a.HouseID == house.ID);
+                content.Add(new DGridHouse(house.ID, house.ResidentialComplexID, house.Street, house.Number, house.ResidentialComplex.Status
+                    , appartaments.Count(x => x.IsSold == true), appartaments.Count(x => x.IsSold != true)));
+            }
+
+            dGripRC.ItemsSource = content;
         }
 
         public static void FilterRCInApartments(DataGrid dGripRC, ComboBox filter)
         {
-            dGripRC.ItemsSource = from hs in ЖК_311Entities.GetContext().Apartaments.ToList()
-                                  where hs.HouseID.ToString() == filter.SelectedItem.ToString()
-                                  select hs;
+            var content = new List<HelpApartment>();
+            foreach (var appartament in ЖК_311Entities.GetContext().Apartaments.Where(e => e.IsSold == false && e.House.ResidentialComplexID.ToString() == filter.SelectedItem.ToString()))
+                content.Add(new HelpApartment(appartament.ID, appartament.HouseID, appartament.Number, 
+                    appartament.Area, appartament.CountOfRooms, appartament.Section, appartament.Floor,
+                    appartament.IsSold.ToString(), appartament.BuildingCost, appartament.ApartmentValueAdded, appartament.IsDeleted, appartament.House.ResidentialComplexID));
+            dGripRC.ItemsSource = content;
         }
 
         public static void FilterHouseInApartments(DataGrid dGripRC, ComboBox filter)
         {
-            dGripRC.ItemsSource = from hs in ЖК_311Entities.GetContext().Apartaments.ToList()
-                                  where hs.HouseID.ToString() == filter.SelectedItem.ToString()
-                                  select hs;
+            var content = new List<HelpApartment>();
+            foreach (var appartament in ЖК_311Entities.GetContext().Apartaments.Where(e => e.IsSold == false && e.HouseID.ToString() == filter.SelectedItem.ToString()))
+                content.Add(new HelpApartment(appartament.ID, appartament.HouseID, appartament.Number,
+                    appartament.Area, appartament.CountOfRooms, appartament.Section, appartament.Floor,
+                    appartament.IsSold.ToString(), appartament.BuildingCost, appartament.ApartmentValueAdded, appartament.IsDeleted, appartament.House.ResidentialComplexID));
+            dGripRC.ItemsSource = content;
         }
     }
 }
