@@ -25,7 +25,7 @@
             <ComboBox Style="{StaticResource Filter}" SelectionChanged="HouseFilter_SelectionChanged" x:Name="HouseFilter"/>
             <ComboBox Style="{StaticResource Filter}" SelectionChanged="RCFilter_SelectionChanged" x:Name="RCFilter"/>
         </UniformGrid>
-        <DataGrid Grid.Row="2" x:Name="DGridAP">
+        <DataGrid LoadingRow="DGridAP_LoadingRow" Grid.Row="2" x:Name="DGridAP">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding RCID}" Header="ЖК"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding Number}" Header="Адрес"></DataGridTextColumn>
